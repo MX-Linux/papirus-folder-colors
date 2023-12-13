@@ -1,0 +1,12 @@
+papirus-folder-colors (23.12.02) mx; urgency=medium
+
+  * Test release
+  * Fixed usr/share management
+
+ -- Melber <melber-mx-linux@gmail.com>  Wed, 13 Dec 2023 23:05:56 +0100
+
+papirus-folder-colors (23.12.01) mx; urgency=medium
+
+  * Initial release.
+
+ -- Melber <melber-mx-linux@gmail.com>  Sun, 03 Dec 2023 14:48:54 +0100

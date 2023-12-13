@@ -1,0 +1,16 @@
+b370aa0e201ecd8d90a2e90f4317de42  usr/bin/papirus-folder-color.sh
+e33db9d21f5c589d8a7b52b389e8acce  usr/bin/papirus-folder-colors
+77a54d9015b0f17640b7823f6ef7c604  usr/bin/papirus-folder-editcolors
+4ea211479ff3101a94f129c14dd8ac27  usr/bin/papirus-folder-editsettings
+debee23a7ef814e1da55263c39d7f159  usr/bin/papirus-folder-recolor
+ae190365a9c52ad508b14f1019a57847  usr/bin/papirus-folder-settings
+6feeab520dacf745b5758e279ff3fdd0  usr/bin/papirus-folder-themes
+d8b0d2f0e0e9dcecdc208e2e30016934  usr/share/applications/papirus-folder-colors.desktop
+021a04a143506c8d3609065a38c746b7  usr/share/doc/papirus-folder-colors/changelog.gz
+39f19c312b67c4eb98d91676717bc8e5  usr/share/doc/papirus-folder-colors/copyright
+8c134cffe5ca453f44dddd717a22383e  usr/share/pixmaps/blank-48x48.svg
+d62b305ac31d8f70e8cbf07430257dd3  usr/share/pixmaps/papirus-folder-colors-96.svg
+d1d2c05fc5a3123460bbb80ceb78de78  usr/share/pixmaps/papirus-folder-colors.svg
+ac244bfe43e19c9b58542eca87dc1d99  usr/share/pixmaps/papirus-folder-recolor.svg
+4a937b432fbe44e2e15062f5ddd90548  usr/share/pixmaps/papirus-folder-settings.svg
+28535da07436bae4f7d6e9c8b41d8f65  usr/share/pixmaps/papirus-folder-themes.svg

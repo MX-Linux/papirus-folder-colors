@@ -1,0 +1,117 @@
+#!/bin/bash
+
+#This app was developed by MX Devs 2023 and released under GPLv3
+#It uses the Bunsenlabs script 'papirus-folder-color.sh' by John Crawley <john@bunsenlabs.org>
+#https://github.com/BunsenLabs/bunsen-papirus-icon-theme/blob/beryllium/papirus-folder-color.sh
+
+### Name=Papirus-folder-colors
+VERSION=23.12-2
+
+#TEXTDOMAINDIR=/usr/share/locale 
+#export TEXTDOMAIN="papirus-folder-colors"
+#source gettext.sh
+
+
+#define about function
+pfc_about () {
+
+# buttons
+#export BTN_LICENSE=$(gettext "License")
+#export BTN_CHANGELOG=$(gettext "Changelog")
+
+#set some variables
+TITLE="$(gettext 'About Papirus Folder Colors')"
+CLASS="mx-pfc"
+ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
+
+BTN_CLOSE=$(gettext "Close")      ; BTN_CLOSE+='!window-close'
+
+#about window
+ABOUTTEXT_TOP="$(gettext 'Papirus Folder Colors')"
+ABOUTTEXT_1="$(gettext 'Version')"
+ABOUTTEXT_2="$(gettext 'Tool to change folder colors')"
+ABOUTTEXT_3="$(gettext 'of the Papirus icon theme')"
+ABOUTTEXT_4="mxlinux.org"
+ABOUTTEXT_5="Copyright (c) MX Linux"
+
+yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+--borders=10 --center --width=400 --height=500 --fixed \
+--image="/usr/share/pixmaps/papirus-folder-colors-96.svg" \
+--button="${BTN_CLOSE}":1 \
+--form --columns=1 --align=center \
+--field="<b><big>$ABOUTTEXT_TOP</big></b>":LBL " " \
+--field=" ":LBL " " \
+--field="$ABOUTTEXT_1 $VERSION":LBL " " \
+--field=" ":LBL " " \
+--field="<big>$ABOUTTEXT_2</big>":LBL " " \
+--field="<big>$ABOUTTEXT_3</big>":LBL " " \
+--field=" ":LBL " " \
+--field=" ":LBL " " \
+--field=" ":LBL " " \
+--field=" ":LBL " " \
+--field="$ABOUTTEXT_4":BTN 'sensible-browser https://mxlinux.org' \
+--field=" ":LBL " " \
+--field="$ABOUTTEXT_5":LBL " "
+
+TITLE="$(gettext 'Papirus Folder Colors')"
+
+}
+
+export -f pfc_about
+
+
+# buttons
+export BTN_ABOUT=$(gettext "About")      ; BTN_ABOUT+='!help-about'
+export BTN_CLOSE=$(gettext "Close")      ; BTN_CLOSE+='!window-close'
+export BTN_RECOLOR=$(gettext "Papirus Folder Recolor")    ; BTN_RECOLOR+='!/usr/share/pixmaps/papirus-folder-recolor.svg'
+export BTN_THEMES=$(gettext "Papirus Folder Themes")    ; BTN_THEMES+='!/usr/share/pixmaps/papirus-folder-themes.svg'
+export BTN_SETTINGS=$(gettext "Manage Folder Themes")    ; BTN_SETTINGS+='!/usr/share/pixmaps/papirus-folder-settings.svg'
+
+#set some variables
+TITLE="$(gettext 'Papirus Folder Colors')"
+CLASS="mx-pfc"
+ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
+
+
+#####
+#main yad window
+
+TEXT_TOP="$(gettext 'Create a new icon theme with different colors')"
+TEXT_1="$(gettext 'Select element colors directly')"
+TEXT_2="$(gettext 'Select from predefined themes')"
+TEXT_3="$(gettext 'Manage themes created with this tool')"
+
+
+until [ "$LAST_STOP" = "allaboard" ]; do
+
+yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+--borders=10 --center --width=400 --height=500 --separator="_" \
+--text="\n<b>$TEXT_TOP</b>\n" --text-align=center \
+--buttons-layout=spread --button="${BTN_ABOUT}":24 --button="${BTN_CLOSE}":22 \
+--form --columns=1 --align=left \
+--field="$TEXT_1":LBL " " \
+--field="$BTN_RECOLOR":FBTN 'bash -c papirus-folder-recolor' \
+--field=" ":LBL " " \
+--field="$TEXT_2":LBL " " \
+--field="$BTN_THEMES":FBTN 'bash -c papirus-folder-themes' \
+--field=" ":LBL " " \
+--field="$TEXT_3":LBL " " \
+--field="$BTN_SETTINGS":FBTN 'bash -c papirus-folder-settings' \
+>/dev/null
+
+case $? in
+
+    22 | 252 )
+        LAST_STOP=allaboard
+    ;;
+
+    24 )
+        pfc_about
+    ;;
+
+esac
+
+done
+
+
+exit

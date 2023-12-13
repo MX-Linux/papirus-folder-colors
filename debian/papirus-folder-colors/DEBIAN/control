@@ -1,0 +1,10 @@
+Package: papirus-folder-colors
+Version: 23.12.02
+Architecture: all
+Maintainer: Melber <melber-mx-linux@gmail.com>
+Installed-Size: 124
+Depends: papirus-icon-theme
+Section: x11
+Priority: optional
+Homepage: <https:/mxlinux.org>
+Description: Create a papirus icon theme with different colored folders

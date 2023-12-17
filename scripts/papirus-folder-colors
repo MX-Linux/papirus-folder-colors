@@ -5,7 +5,7 @@
 #https://github.com/BunsenLabs/bunsen-papirus-icon-theme/blob/beryllium/papirus-folder-color.sh
 
 ### Name=Papirus-folder-colors
-VERSION=23.12-2
+VERSION=23.12.03
 
 #TEXTDOMAINDIR=/usr/share/locale 
 #export TEXTDOMAIN="papirus-folder-colors"

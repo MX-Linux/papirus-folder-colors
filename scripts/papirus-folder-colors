@@ -1,11 +1,8 @@
 #!/bin/bash
 
 #This app was developed by MX Devs 2023 and released under GPLv3
-#It uses the Bunsenlabs script 'papirus-folder-color.sh' by John Crawley <john@bunsenlabs.org>
-#https://github.com/BunsenLabs/bunsen-papirus-icon-theme/blob/beryllium/papirus-folder-color.sh
-
 ### Name=Papirus-folder-colors
-VERSION=23.12.03
+VERSION=23.12.04
 
 #TEXTDOMAINDIR=/usr/share/locale 
 #export TEXTDOMAIN="papirus-folder-colors"
@@ -24,20 +21,24 @@ TITLE="$(gettext 'About Papirus Folder Colors')"
 CLASS="mx-pfc"
 ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
 
-BTN_CLOSE=$(gettext "Close")      ; BTN_CLOSE+='!window-close'
+BTN_LICENSE=$(gettext "License")
+BTN_CHANGELOG=$(gettext "Changelog"); BTN_CHANGELOG+='!preferences-system-time-symbolic'
+BTN_CLOSE=$(gettext "Close"); BTN_CLOSE+='!window-close'
 
 #about window
 ABOUTTEXT_TOP="$(gettext 'Papirus Folder Colors')"
 ABOUTTEXT_1="$(gettext 'Version')"
 ABOUTTEXT_2="$(gettext 'Tool to change folder colors')"
 ABOUTTEXT_3="$(gettext 'of the Papirus icon theme')"
-ABOUTTEXT_4="mxlinux.org"
-ABOUTTEXT_5="Copyright (c) MX Linux"
+ABOUTTEXT_4="<b>mxlinux.org</b>"
+ABOUTTEXT_5="Copyright (c) Melber - MX Linux"
+
+until [ "$about_loop" = "closed" ]; do
 
 yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
 --borders=10 --center --width=400 --height=500 --fixed \
 --image="/usr/share/pixmaps/papirus-folder-colors-96.svg" \
---button="${BTN_CLOSE}":1 \
+--buttons-layout=spread --button="${BTN_LICENSE}":12 --button="${BTN_CHANGELOG}":10 --button="${BTN_CLOSE}":1 \
 --form --columns=1 --align=center \
 --field="<b><big>$ABOUTTEXT_TOP</big></b>":LBL " " \
 --field=" ":LBL " " \
@@ -47,11 +48,41 @@ yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
 --field="<big>$ABOUTTEXT_3</big>":LBL " " \
 --field=" ":LBL " " \
 --field=" ":LBL " " \
---field=" ":LBL " " \
---field=" ":LBL " " \
 --field="$ABOUTTEXT_4":BTN 'sensible-browser https://mxlinux.org' \
 --field=" ":LBL " " \
---field="$ABOUTTEXT_5":LBL " "
+--field="$ABOUTTEXT_5":LBL " " \
+> /dev/null
+
+
+case $? in
+
+    1 | 252 )
+        about_loop=closed
+    ;;
+
+    10 )
+        printf "$(zcat /usr/share/doc/papirus-folder-colors/changelog.gz)" > /tmp/pfc-clog.txt
+        
+        yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+        --borders=10 --center --width=400 --height=500 --fixed \
+        --text-info < /tmp/pfc-clog.txt --wrap --show-uri \
+        --button="${BTN_CLOSE}":1 \
+        > /dev/null
+        
+        rm /tmp/pfc-clog.txt
+    ;;
+    
+    12 )             
+        yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+        --borders=10 --center --width=400 --height=500 --fixed \
+        --text-info < /usr/share/doc/papirus-folder-colors/copyright --wrap --show-uri \
+        --button="${BTN_CLOSE}":1 \
+        > /dev/null
+    ;;
+
+esac
+
+done
 
 TITLE="$(gettext 'Papirus Folder Colors')"
 

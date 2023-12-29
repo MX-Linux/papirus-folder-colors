@@ -1,11 +1,8 @@
 #!/bin/bash
 
 #This app was developed by MX Devs 2023 and released under GPLv3
-#It uses the Bunsenlabs script 'papirus-folder-color.sh' by John Crawley <john@bunsenlabs.org>
-#https://github.com/BunsenLabs/bunsen-papirus-icon-theme/blob/beryllium/papirus-folder-color.sh
-
 ### Name=Papirus-folder-recolor
-### Version=23.12-2
+### Version=23.12.04
 
 #TEXTDOMAINDIR=/usr/share/locale 
 #export TEXTDOMAIN="papirus-folder-recolor"
@@ -330,6 +327,7 @@ else
     TEXT_NAME3="$(gettext 'Window theme symbols')"
     TEXT_NAME4="$(gettext 'light = create symbols for light colored window themes')"
     TEXT_NAME5="$(gettext 'dark = create symbols for dark colored window themes')"
+    TEXT_NAME6="$(gettext 'dark = appends "-dark" automatically to end of theme name')"
 
     TEXT_TARGET1="$(gettext 'Save theme as')"
     TEXT_TARGET2="$USER"
@@ -346,8 +344,8 @@ else
 
 
     yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
-    --borders=10 --center --width=400 --height=500 --separator="_" \
-    --text="<b>$TEXT_NAME1</b>\n\n$TEXT_NAME3\n$TEXT_NAME4\n$TEXT_NAME5\n\n<i>$TEXT_NAME2\n$TEXT_NAME2A</i>" --text-align=center \
+    --borders=10 --center --width=400 --height=500 --separator="|" \
+    --text="<b>$TEXT_NAME1</b>\n\n$TEXT_NAME3\n$TEXT_NAME4\n$TEXT_NAME5\n$TEXT_NAME6\n\n<i>$TEXT_NAME2\n$TEXT_NAME2A</i>" --text-align=center \
     --buttons-layout=spread --button="${BTN_CLOSE}":6 --button="${BTN_CREATE}":8 \
     --form --columns=1 --align=right \
     --field=" ":LBL "x" \
@@ -373,8 +371,8 @@ case $ret in
         colors=("$temp1" "$temp2" "$temp3" "$iconswitch")
         read -r -a COLORS < $YAD_TARGETS
 
-        COLORS=$(echo $COLORS | sed -e "s/__/THEMEHASNONAME_/g")
-        COLORS=$(echo $COLORS | sed -e "s/_/ /g")
+        COLORS=$(echo $COLORS | sed -e "s/||/THEMEHASNONAME|/g")
+        COLORS=$(echo $COLORS | sed -e "s/|/ /g")
         colors+=($COLORS)
 
         COLOR_MAIN_NEW="${colors[0]}"
@@ -416,16 +414,35 @@ case $ret in
     fi
 
 
+#check dark theme
+
+    if [ "$FROM_PFSETTINGS" = "frompfs" ]; then    
+        PFR_NAME=$(echo $PFR_NAME | sed -e "s/-dark//")
+    fi 
+    
+    if [ "$TYPE_NEW" = "dark" ]; then
+        TYPE_NEW='--dark'
+        DARKNAME='-dark'
+        CLASSIC_DARK="dark"
+        TYPE_SET="dark" 
+    elif [ "$TYPE_NEW" = "light" ]; then
+        TYPE_NEW=''
+        DARKNAME=''
+        CLASSIC_DARK=''
+        TYPE_SET="light"
+    fi
+
+
 #check if theme name exists, if yes ask if overwrite or different name
 
-    while [ -d "$TARGET_NEW"/"$PFR_NAME" ]; do
+    while [ -d "$TARGET_NEW"/"$PFR_NAME$DARKNAME" ]; do
 
-        TEXT_OVERWRITE_1="$(gettext 'An icon theme with this name already exists.')"
+        TEXT_OVERWRITE_1="$(gettext 'already exists.')"
         TEXT_OVERWRITE_2="$(gettext 'Do you want to overwrite the icon theme or save with a different name?')"
 
         yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
         --width=400 --height=200 --text-align=center --center --borders=10 --separator="" \
-        --text-align=center --text="$TEXT_OVERWRITE_1\n\n$TEXT_OVERWRITE_2\n\n" \
+        --text="<b>$PFR_NAME$DARKNAME</b> $TEXT_OVERWRITE_1\n\n$TEXT_OVERWRITE_2\n\n" \
         --buttons-layout=spread --button="$BTN_OVERWRITE":16 --button="$BTN_SAVENEW":18
 
         GETOUT2=$?
@@ -438,20 +455,22 @@ case $ret in
 
             16 )
                 if [ "$TARGET_NEW" = "$HOME/.local/share/icons" -o "$TARGET_NEW" = "$HOME/.icons" ]; then
-                    rm -r $TARGET_NEW"/"$PFR_NAME
+                    rm -r $TARGET_NEW/$PFR_NAME$DARKNAME
                 else
                     PFR_NAME_USRSHARE=$PFR_NAME
                     PFR_NAME=tempoverride
-#                    pkexec rm -r $TARGET_NEW"/"$PFR_NAME
+                    USRSHARE_EXISTS=true
                 fi
                 ;;
 
             18 )
                 TEXT_SAVEAS_1="$(gettext 'New name')"
+                
+                NAME_NEW=$(echo $PFR_NAME | sed -e "s/Papirus-//")
 
                 NAME_NEW=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
                 --width=400 --height=200 --text-align=center --center --borders=10 --separator="" \
-                --text-align=center --text="\n\n$TEXT_SAVEAS_1\n\n" \
+                --text-align=center --text="\n$TEXT_SAVEAS_1\n\n" \
                 --buttons-layout=spread --button="$BTN_CREATE":26 \
                 --form \
                 --field="Papirus-" "$NAME_NEW" )
@@ -484,30 +503,18 @@ case $ret in
         COLOR_TOP=#86460b
         COLOR_SYMBOL=#ffffff
         
-        if [ "$TYPE_NEW" = "dark" ]; then
+        if [ "$CLASSIC_DARK" = "dark" ]; then
            COLOR_MAIN=#6ba4e7
         fi
     fi
 
 
-#check dark theme   
-    
-    if [ "$TYPE_NEW" = "dark" ]; then
-        TYPE_NEW='--dark'
-        DARKNAME='-Dark'
-        CLASSIC_DARK="dark"
-        TYPE_SET="dark" 
-    elif [ "$TYPE_NEW" = "light" ]; then
-        TYPE_NEW=''
-        DARKNAME=''
-        CLASSIC_DARK=''
-        TYPE_SET="light"
-    fi
+
 
 
 #make recolor-list.conf
 
-    printf "PFR_NAME=$PFR_NAME
+    printf "PFR_NAME=$PFR_NAME$DARKNAME
     COLOR_MAIN=$COLOR_MAIN
     COLOR_MAIN_NEW=$COLOR_MAIN_NEW
     COLOR_TOP=$COLOR_TOP
@@ -523,31 +530,51 @@ case $ret in
     if [ "$TARGET_NEW" = "$HOME/.local/share/icons" -o "$TARGET_NEW" = "$HOME/.icons" ]; then
 
         if [ "$ICONSWITCH" = "classic" ]; then
-            cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME
-            sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME/g" $TARGET_NEW/$PFR_NAME/index.theme
+            cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME
+            sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME$DARKNAME/index.theme
+            papirus-folder-editcolors
         else
-            papirus-folder-color.sh --color blue --name $PFR_NAME --target_path $TARGET_NEW $TYPE_NEW 
+            papirus-folder-color.sh --color blue --name $PFR_NAME$DARKNAME --target_path $TARGET_NEW $TYPE_NEW
+            papirus-folder-editcolors
         fi
 
-        papirus-folder-editcolors
+        
 
     elif [ "$TARGET_NEW" = '/usr/share/icons' ]; then
-    
-        if [ "$ICONSWITCH" = "classic" ]; then
-            pkexec bash -c "rm -r $TARGET_NEW/$PFR_NAME &&
-            cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME &&
-            sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME/g" $TARGET_NEW/$PFR_NAME/index.theme &&
-            papirus-folder-editcolors"
+#  rm -r $TARGET_NEW/$PFR_NAME$DARK &&
+
+        if [ "$USRSHARE_EXISTS" = "true" ]; then
+  
+            if [ "$ICONSWITCH" = "classic" ]; then
+                pkexec bash -c "rm -r $TARGET_NEW/$PFR_NAME$DARK &&
+                cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
+                sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME/index.theme &&
+                papirus-folder-editcolors"
+            else
+                pkexec bash -c "rm -r $TARGET_NEW/$PFR_NAME$DARKNAME &&
+                papirus-folder-color.sh --color blue --name $PFR_NAME$DARKNAME --target_path $TARGET_NEW $TYPE_NEW &&
+                papirus-folder-editcolors"
+            fi
 
         else
-            pkexec bash -c "rm -r $TARGET_NEW/$PFR_NAME && papirus-folder-color.sh --color blue --name $PFR_NAME --target_path $TARGET_NEW $TYPE_NEW && papirus-folder-editcolors"
+        
+            if [ "$ICONSWITCH" = "classic" ]; then
+                pkexec bash -c "cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
+                sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME/index.theme &&
+                papirus-folder-editcolors"
+            else
+                pkexec bash -c "papirus-folder-color.sh --color blue --name $PFR_NAME$DARKNAME --target_path $TARGET_NEW $TYPE_NEW &&
+                papirus-folder-editcolors"
+            fi
+        
         fi
+        
 
     fi
 
 #finished message
 
-    if [ -d $TARGET_NEW/$PFR_NAME ]; then
+    if [ -d $TARGET_NEW/$PFR_NAME$DARKNAME ]; then
 
         FINSHTEXT1="$(gettext 'icon theme created in')"
         FINSHTEXT2="$(gettext 'Change icon theme with MX-Tweak')"
@@ -555,7 +582,7 @@ case $ret in
 
         yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
         --borders=10 --center --width=400 --height=300 --text-align=center \
-        --text="\n<b>$PFR_NAME</b>\n$FINSHTEXT1 $TARGET_NEW\n\n<b>$FINSHTEXT2</b>" \
+        --text="\n<b>$PFR_NAME$DARKNAME</b>\n$FINSHTEXT1 $TARGET_NEW\n\n<b>$FINSHTEXT2</b>" \
         --buttons-layout=spread --button="$FINSHTEXT3":'mx-tweak --theme' --button="${BTN_CLOSE}"
         
         if [ -f /tmp/pfr-completed ]; then

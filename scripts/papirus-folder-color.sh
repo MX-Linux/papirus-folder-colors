@@ -5,6 +5,10 @@
 #
 #    Copyright: 2019-2022 John Crawley <john@bunsenlabs.org>
 #
+#    Modified and expanded for MX-Linux papirus-folder-colors
+#    Version=23.12.04
+#    Copyright: 2023 Melber <melber.mx.linux@gmail.com>
+#
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
@@ -20,7 +24,6 @@
 
 # If not overruled by --name option, this will be included in generated theme name.
 # Other vendors, please edit to taste:
-#vendor=Bunsen
 vendor=MX-Linux
 
 USAGE="
@@ -72,7 +75,6 @@ then symlinked icons will use relative paths, otherwise absolute paths.
 ## these can (should, at least for color) be overridden by script options
 source_path=/usr/share/icons # place to find source Papirus theme
 target_path="$HOME/.local/share/icons" # place to put generated theme
-#target_path="$PWD"
 copy_files=true # If true, copy icons into new theme instead of symlinking.
 new_theme=''
 color=''
@@ -121,7 +123,7 @@ done
 
 ########################################################################
 
-#mx-edit - added adwaita
+#mx-edit - include adwaita
 case "$color" in
 black|blue|bluegrey|breeze|brown|cyan|deeporange|green|grey|indigo|magenta|nordic|orange|palebrown|paleorange|pink|red|teal|violet|white|yaru|yellow|custom|adwaita)
     ;;
@@ -245,7 +247,7 @@ else
     inherit="Papirus,breeze"
 fi
 
-#mx-edit - changed BunsenLabs to MX-Linux
+#mx-edit
 cat <<EOF > "$target_dir/index.theme"
 [Icon Theme]
 Name=$new_theme

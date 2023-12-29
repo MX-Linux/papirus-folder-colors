@@ -1,11 +1,8 @@
 #!/bin/bash
 
 #This app was developed by MX Devs 2023 and released under GPLv3
-#It uses the Bunsenlabs script 'papirus-folder-color.sh' by John Crawley <john@bunsenlabs.org>
-#https://github.com/BunsenLabs/bunsen-papirus-icon-theme/blob/beryllium/papirus-folder-color.sh
-
 ### Name=Papirus-folder-themes
-### Version=23.12-2
+### Version=23.12.04
 
 #TEXTDOMAINDIR=/usr/share/locale 
 #export TEXTDOMAIN="papirus-folder-colors"
@@ -15,6 +12,8 @@
 export BTN_CLOSE=$(gettext "Close")      ; BTN_CLOSE+='!window-close'
 export BTN_OK=$(gettext "OK")            ; BTN_OK+='!object-select'
 export BTN_CREATE=$(gettext "Create Theme")    ; BTN_CREATE+='!object-select'
+export BTN_OVERWRITE=$(gettext "Overwrite")    ; BTN_OVERWRITE+='!document-save'
+export BTN_SAVENEW=$(gettext "Create with new name")    ; BTN_SAVENEW+='!document-save-as'
 
 TITLE="$(gettext 'Papirus Folder Themes')"
 CLASS="mx-pft"
@@ -138,11 +137,12 @@ TEXT_TARGET5="$(gettext 'Window theme symbols')"
 TEXT_TARGET6="light!dark"
 TEXT_TARGET7="$(gettext 'light = create symbols for light colored window themes')"
 TEXT_TARGET8="$(gettext 'dark = create symbols for dark colored window themes')"
+TEXT_TARGET9="$(gettext 'dark = appends "-dark" automatically to end of theme name')"
 
 yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
 --borders=10 --center --width=400 --height=500 --separator=" " \
---form --align=right --separator="_" \
---text="<b>$TEXT2</b>\n\n$TEXT_TARGET5\n$TEXT_TARGET7\n$TEXT_TARGET8\n\n<i>$TEXT2A\n$TEXT2B</i>" --text-align=center \
+--form --align=right --separator="|" \
+--text="<b>$TEXT2</b>\n\n$TEXT_TARGET5\n$TEXT_TARGET7\n$TEXT_TARGET8\n$TEXT_TARGET9\n\n<i>$TEXT2A\n$TEXT2B</i>" --text-align=center \
 --buttons-layout=spread --button="${BTN_CLOSE}":6 --button="${BTN_CREATE}":8 \
 --field=" ":LBL "_" \
 --field="$TEXT_TARGET1 <b>Papirus-</b>   " "$TEXT_TARGET2" \
@@ -164,8 +164,8 @@ case $ret in
 
         echo $COMBIBOXES
 
-        COMBIBOXES=$(echo $COMBIBOXES | sed -e "s/__/_THEMEHASNONAME_/g")
-        COMBIBOXES=$(echo $COMBIBOXES | sed -e "s/\_/ /g")
+        COMBIBOXES=$(echo $COMBIBOXES | sed -e "s/||/|THEMEHASNONAME/g")
+        COMBIBOXES=$(echo $COMBIBOXES | sed -e "s/|/ /g")
 
         combiboxes=($COMBIBOXES)
         NAME_NEW="${combiboxes[0]}"
@@ -198,42 +198,75 @@ case $ret in
         esac
         done
 
-
-#check if theme name exists, if yes ask if overwrite or different name
-
-        while [ -d "$PFT_TARGET"/"$PFT_NAME" ]; do
-    
-        TEXT_OVERWRITE_1="$(gettext 'An icon theme with this name already exists.')"
-        TEXT_OVERWRITE_2="$(gettext 'Select a different name')"
-
-        NAME_NEW=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
-        --width=400 --height=200 --text-align=center --center --borders=10 --separator="" \
-        --text="$TEXT_OVERWRITE_1\n\n$TEXT_OVERWRITE_2" \
-        --buttons-layout=spread --button="$BTN_CLOSE":16 --button="$BTN_CREATE":18 \
-        --form \
-        --field="Papirus-" "$NAME_NEW" )
-
-        GETOUT2=$?
-
-        case $GETOUT2 in
-            16 | 252 )
-            exit
-            ;;
-            18 )
-            PFT_NAME="Papirus-$NAME_NEW"
-            ;;
-        esac
-        done
-
-
+#check dark theme 
         if [ "$PFT_DARK" = "dark" ]; then
             PFT_DARK='--dark'
-            PFT_DARKNAME='-Dark'
+            PFT_DARKNAME='-dark'
             TYPE_SET="dark"
         elif [ "$PFT_DARK" = "light" ]; then
             PFT_DARK=''
             PFT_DARKNAME=''
             TYPE_SET="light"
+        fi
+
+
+#check if theme name exists, if yes ask if overwrite or different name
+
+        while [ -d "$PFT_TARGET"/"$PFT_NAME$PFT_DARKNAME" ]; do
+    
+        TEXT_OVERWRITE_1="$(gettext 'already exists.')"
+        TEXT_OVERWRITE_2="$(gettext 'Do you want to overwrite the icon theme or save with a different name?')"
+
+        yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+        --width=400 --height=200 --text-align=center --center --borders=10 --separator="" \
+        --text="<b>$PFT_NAME$PFT_DARKNAME</b> $TEXT_OVERWRITE_1\n\n$TEXT_OVERWRITE_2" \
+        --buttons-layout=spread --button="$BTN_OVERWRITE":16 --button="$BTN_SAVENEW":18 
+
+        GETOUT2=$?
+
+        case $GETOUT2 in
+            252 )
+                exit
+            ;;
+            
+            16 )
+                if [ "$PFT_TARGET" = "$HOME/.local/share/icons" -o "$TARGET_NEW" = "$HOME/.icons" ]; then
+                    rm -r $PFT_TARGET/$PFT_NAME$DARKNAME
+                else
+                    PFT_NAME_USRSHARE=$PFT_NAME
+                    PFT_NAME=tempoverride
+                    USRSHARE_EXISTS=true
+                fi
+                ;;
+            
+            18 )
+                TEXT_SAVEAS_1="$(gettext 'New name')"
+                
+                NAME_NEW=$(echo $PFT_NAME | sed -e "s/Papirus-//")
+
+                NAME_NEW=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+                --width=400 --height=200 --text-align=center --center --borders=10 --separator="" \
+                --text-align=center --text="\n$TEXT_SAVEAS_1\n\n" \
+                --buttons-layout=spread --button="$BTN_CREATE":26 \
+                --form \
+                --field="Papirus-" "$NAME_NEW" )
+
+                case $? in
+                252 )
+                    exit 0
+                ;;
+
+                26 )
+                PFT_NAME="Papirus-$NAME_NEW"
+                ;;
+                esac
+            ;;
+        esac
+        done
+        
+#revert usr/share override
+        if [ "$PFT_NAME" = "tempoverride" ]; then
+            PFT_NAME=$PFT_NAME_USRSHARE
         fi
 
 
@@ -247,18 +280,23 @@ case $ret in
                 mkdir $PFT_TARGET
             fi
 
-            papirus-folder-color.sh --color $PFT_COLOR --name $PFT_NAME --target_path $PFT_TARGET $PFT_DARK
+            papirus-folder-color.sh --color $PFT_COLOR --name $PFT_NAME$PFT_DARKNAME --target_path $PFT_TARGET $PFT_DARK
 
         elif [ "$PFT_TARGET" = '/usr/share/icons' ]; then
 
-            pkexec papirus-folder-color.sh --color $PFT_COLOR --name $PFT_NAME --target_path $PFT_TARGET $PFT_DARK
+            if [ "$USRSHARE_EXISTS" = "true" ]; then
+            pkexec bash -c "rm -r $PFT_TARGET/$PFT_NAME$PFT_DARKNAME &&
+            papirus-folder-color.sh --color $PFT_COLOR --name $PFT_NAME$PFT_DARKNAME --target_path $PFT_TARGET $PFT_DARK"
+            else
+            pkexec papirus-folder-color.sh --color $PFT_COLOR --name $PFT_NAME$PFT_DARKNAME --target_path $PFT_TARGET $PFT_DARK
+            fi
         
         fi
 
 
-#check
+#finished message
 
-        if [ -d $PFT_TARGET/$PFT_NAME ]; then
+        if [ -d $PFT_TARGET/$PFT_NAME$PFT_DARKNAME ]; then
 
         TEXT3="$(gettext 'icon theme created in')"
         TEXT4="$(gettext 'Change icon theme with MX-Tweak')"
@@ -266,7 +304,7 @@ case $ret in
 
         yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
         --borders=10 --center --width=400 --height=300 --text-align=center \
-        --text="\n<b>$PFT_NAME</b>\n$TEXT3 $PFT_TARGET\n\n<b>$TEXT4</b>" \
+        --text="\n<b>$PFT_NAME$PFT_DARKNAME</b>\n$TEXT3 $PFT_TARGET\n\n<b>$TEXT4</b>" \
         --buttons-layout=spread --button="$TEXT5":'mx-tweak --theme' --button="${BTN_CLOSE}"
 
         else

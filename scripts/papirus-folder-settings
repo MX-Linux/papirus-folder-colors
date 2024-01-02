@@ -7,9 +7,9 @@
 ### Name=Papirus-folder-settings
 #Version=23.12-2
 
-#TEXTDOMAINDIR=/usr/share/locale 
-#export TEXTDOMAIN="papirus-folder-colors"
-#source gettext.sh
+TEXTDOMAINDIR=/usr/share/locale 
+export TEXTDOMAIN="papirus-folder-colors"
+source gettext.sh
 
 SETTINGSKEY=$RANDOM
 export TITLE="$(gettext 'Papirus Folder Settings')"

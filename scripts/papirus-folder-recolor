@@ -4,9 +4,9 @@
 ### Name=Papirus-folder-recolor
 ### Version=23.12.04
 
-#TEXTDOMAINDIR=/usr/share/locale 
-#export TEXTDOMAIN="papirus-folder-recolor"
-#source gettext.sh
+TEXTDOMAINDIR=/usr/share/locale 
+export TEXTDOMAIN="papirus-folder-colors"
+source gettext.sh
 
 # buttons
 export BTN_ABOUT=$(gettext "About")      ; BTN_ABOUT+='!help-about'

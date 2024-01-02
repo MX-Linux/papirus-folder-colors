@@ -4,9 +4,9 @@
 ### Name=Papirus-folder-themes
 ### Version=23.12.04
 
-#TEXTDOMAINDIR=/usr/share/locale 
-#export TEXTDOMAIN="papirus-folder-colors"
-#source gettext.sh
+TEXTDOMAINDIR=/usr/share/locale 
+export TEXTDOMAIN="papirus-folder-colors"
+source gettext.sh
 
 # buttons
 export BTN_CLOSE=$(gettext "Close")      ; BTN_CLOSE+='!window-close'

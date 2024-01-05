@@ -1,16 +1,21 @@
 #!/bin/bash
 
-#This app was developed by MX Devs 2023 and released under GPLv3
-#Papirus-folder-editsettings
-#Version=23.12-2
+### This app was developed by MX Devs 2023 and released under GPLv3
+### Papirus-folder-editsettings
+### Version=24.01.01
 
+#TRANSLATORS app name for titlebar text
 export TITLE="$(gettext 'Papirus Folder Settings')"
 export CLASS="mx-pfc"
 export ICONPATH="/usr/share/pixmaps/papirus-folder-settings.svg"
 
+#TRANSLATORS button label
 export BTN_YES=$(gettext "Yes")      ; BTN_YES+='!ok'
+#TRANSLATORS button label
 export BTN_NO=$(gettext "No")      ; BTN_NO+='!window-close'
+#TRANSLATORS button label
 export BTN_OK=$(gettext "OK")      ; BTN_CLOSE+='!ok'
+#TRANSLATORS button label
 export BTN_CLOSE=$(gettext "Close")      ; BTN_CLOSE+='!window-close'
 
 case $1 in
@@ -25,6 +30,7 @@ else
     LOCATIONS="/usr/share/icons!$HOME/.local/share/icons!$HOME/.icons"
 fi
 
+#TRANSLATORS window text - asking for new location to save theme
 TEXT_MOVE="$(gettext 'New location for icon theme')"
 NAME_MOVE=$(basename $FOLDER_SETTINGS)
 
@@ -45,8 +51,10 @@ TARGET_MOVE=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
         STARTPATH="$(echo ${FOLDER_SETTINGS%/*})"
         
         until [ "$STARTPATH" != "$TARGET_MOVE" ] && [ ! -d $TARGET_MOVE/$NAME_MOVE ]; do
-        
+
+#TRANSLATORS error message - text is preceded by icon theme name and followed by path
             TEXT_MOVEFAIL1="$(gettext 'already exists in')"
+#TRANSLATORS window text - asking for new location to save theme
             TEXT_MOVEFAIL2="$(gettext 'Select a new location')"
 
             TARGET_MOVE=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
@@ -100,6 +108,7 @@ settings_delete)
 
 FOLDER_SETTINGS=$(tail -n 1 /tmp/pfs-themename)
 
+#TRANSLATORS window text - requesting confirmation that selected icon theme should be deleted
 TEXT_DELCON="$(gettext 'Do you really want to delete')"
 
 yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
@@ -140,6 +149,7 @@ settings_rename)
 
 FOLDER_SETTINGS=$(tail -n 1 /tmp/pfs-themename)
 
+#TRANSLATORS window text - asking for new name for icon theme
 TEXT_RN="$(gettext 'New name for icon theme')"
 NAME_OLD=$(basename $FOLDER_SETTINGS)
 NAME_OLD=$(echo $NAME_OLD | sed -e "s/Papirus-//")
@@ -158,10 +168,13 @@ NAME_RENAME=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
     ;;
     
     20 )
+        NAME_RENAME=$(echo $NAME_RENAME | sed -e "s/ /_/g") ### replace empty spaces with underscore
         STARTPATH="$(echo ${FOLDER_SETTINGS%/*})"
 
         until [ "$NAME_OLD" != "$NAME_RENAME" ] && [ ! -d $STARTPATH/Papirus-$NAME_RENAME ]; do
+#TRANSLATORS error message - text is preceded by icon theme name
         TEXT_RENAMEFAIL1="$(gettext 'already exists.')"
+#TRANSLATORS window text - asking for new name for icon theme
         TEXT_RENAMEFAIL2="$(gettext 'Select a new name.')"
 
         NAME_RENAME=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
@@ -225,7 +238,9 @@ esac
 
 if [ "$SETTINGS_DONE" = "yessir" ]; then
 
+#TRANSLATORS completed window text
     PFS_FINISHEDTEXT1="All done."
+#TRANSLATORS completed window information text - "Reload List" text same as button label, leave <b> markup tags
     PFS_FINISHEDTEXT2="Use the <b> Reload List </b> button to update the folder list."
 
     yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
@@ -235,7 +250,8 @@ if [ "$SETTINGS_DONE" = "yessir" ]; then
 
 elif [ "$SETTINGS_DONE" = "nomaam" ]; then
 
-    PFS_FINISHEDTEXT3="$(gettext 'OOPS! Something went wrong.')"
+#TRANSLATORS completed window error message
+    PFS_FINISHEDTEXT3="$(gettext 'OOPS! Something went wrong with Papirus folder settings.')"
 
     yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
     --borders=10 --center --width=400 --height=200 --text-align=center \

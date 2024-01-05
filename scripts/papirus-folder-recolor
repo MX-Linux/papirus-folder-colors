@@ -1,50 +1,42 @@
 #!/bin/bash
 
-#This app was developed by MX Devs 2023 and released under GPLv3
+### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-recolor
-### Version=23.12.04
+### Version=24.01.01
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
 source gettext.sh
 
-# buttons
+### buttons
+
+#TRANSLATORS button label
 export BTN_ABOUT=$(gettext "About")      ; BTN_ABOUT+='!help-about'
+#TRANSLATORS button label
 export BTN_CLOSE=$(gettext "Close")      ; BTN_CLOSE+='!window-close'
+#TRANSLATORS button label
 export BTN_CREATE=$(gettext "Create Theme")    ; BTN_CREATE+='!object-select'
+#TRANSLATORS button label
 export BTN_OVERWRITE=$(gettext "Overwrite")    ; BTN_OVERWRITE+='!document-save'
+#TRANSLATORS button label
 export BTN_SAVENEW=$(gettext "Create with new name")    ; BTN_SAVENEW+='!document-save-as'
 
-#set some variables
+### set some variables
 
+#TRANSLATORS app name for titlebar text
 TITLE="$(gettext 'Papirus Folder Recolor')"
 CLASS="mx-pfr"
 ICONPATH="/usr/share/pixmaps/papirus-folder-recolor.svg"
 
 
-#check papirus icons are installed
-if [ ! -d /usr/share/icons/Papirus  -o  ! -d /usr/share/icons/Papirus-mxblue ]; then
-
-    TEXT_NOPAPIRUS_1="$(gettext 'Papirus icon themes not found!')"
-    TEXT_NOPAPIRUS_2="$(gettext 'This tool requires the Papirus and Papirus-mxblue icon themes to be installed in')"
-    
-    yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
-    --borders=10 --center --width=300 --height=200 \
-    --text="\n\n<b>$TEXT_NOPAPIRUS_1</b>\n\n$TEXT_NOPAPIRUS_2\n<b>/usr/share/icons</b>" --text-align=center \
-    --button="${BTN_CLOSE}":6 \
-    
-    exit
-    
-fi
-
-#make template
-export YAD_TARGETS=/tmp/pfr-targets.svg
+### make template
+export YAD_TARGETS=/tmp/pfr-targets.txt
 export TEMPLATE_ICON=/tmp/pfr-template.svg
 export TEMPLATE_ICON_CLASSIC=/tmp/pfr-template2.svg
 export TEMP_COLORFILE=/tmp/pfr-tempcolor.conf
 
 
-#make template icons
+### make template icons
 printf '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" version="1">
 <rect style="opacity:0.2" width="56" height="36" x="4" y="22" rx="2.8" ry="2.8"/>
 <path style="fill:#4877b1" d="M 4,46.2 C 4,47.751 5.2488,49 6.8,49 H 57.2 C 58.751,49 60,47.751 60,46.2 V 15.8 C 60,14.249 58.751,13 57.2,13 H 32 C 27.8,13 26.4,7 22.2,7 H 6.8 C 5.2488,7 4,8.2488 4,9.8"/>
@@ -85,7 +77,7 @@ opacity="0.3" id="path222" style="stroke-width:1.4" />
 </svg>' > $TEMPLATE_ICON_CLASSIC
 
 
-#check if pfc-settings file exists
+### check if pfc-settings file exists
 SETTINGS_CHECK="/tmp/pfs-settings.conf"
 
 if [ -f "$SETTINGS_CHECK" ]; then
@@ -121,9 +113,9 @@ fi
 
 
 
-###functions
+### functions
 
-#cleanup_function
+### cleanup_function
 cleanup_tempfiles () {
 
 tempfiles_list=($YAD_TARGETS $TEMPLATE_ICON $TEMPLATE_ICON_CLASSIC $TEMP_COLORFILE $fpipe)
@@ -137,9 +129,10 @@ done
 
 }
 
-#color_picker functiom
+### color_picker functiom
 color_picker () {
 
+#TRANSLATORS app name for titlebar text
 TITLE="$(gettext 'Papirus Folder Recolor')"
 CLASS="mx-pfr"
 ICONPATH="/usr/share/pixmaps/papirus-folder-recolor.svg"
@@ -159,7 +152,7 @@ C_CP=$("${YAD_CP[@]}")
 }
 
 
-# color_change function called with yad button
+### color_change function called with yad button
 color_change () {
 
     echo -e "\f"
@@ -167,7 +160,7 @@ color_change () {
 
     source $TEMP_COLORFILE
 
-# set template icon   
+### set template icon   
 if [ "$N" = "0" ]; then
 
     if [ "$iconswitch" = "standard" ]; then
@@ -179,7 +172,7 @@ if [ "$N" = "0" ]; then
     fi
 fi
 
-# edit template icons
+### edit template icons
 if [ "$N" != "0" ]; then
 
     if [ "$C" = "$temp1" -o "$C" = "$temp2" -o "$C" = "$temp3" ]; then
@@ -187,7 +180,9 @@ if [ "$N" != "0" ]; then
         TITLE="$(gettext 'Papirus Folder Recolor')"
         CLASS="mx-pfr"
         ICONPATH="usr/share/pixmaps/papirus-folder-recolor.svg"
+#TRANSLATORS warning message if color is already used - line 1
         TEXT_WARNCOLOR1="$(gettext 'An icon element is already using this color.')"
+#TRANSLATORS warning message if color is already used - line 2
         TEXT_WARNCOLOR2="$(gettext 'Choose a different color.')"
 
         yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
@@ -238,15 +233,20 @@ export -f cleanup_tempfiles color_picker color_change
 
 
 ###
-#main yad window
+### main yad window
 
+#TRANSLATORS Button text
 TEXT_FIELD_00="$(gettext 'Toggle Icon Style')"
+#TRANSLATORS Window text
 TEXT_FIELD0="$(gettext 'Apply color to')"
+#TRANSLATORS Button text
 TEXT_FIELD1="$(gettext 'Main Folder Color')"
+#TRANSLATORS Button text
 TEXT_FIELD2="$(gettext 'Folder Background')"
+#TRANSLATORS Button text
 TEXT_FIELD3="$(gettext 'Folder Symbol')"
 
-#template colours
+### template colours
 COLOR_MAIN=#5294e2
 COLOR_TOP=#4877b1
 COLOR_SYMBOL=#1d344f
@@ -280,7 +280,7 @@ yad --plug=$rkey --tabnum=1 \
 --listen --cycle-read \
 --column=":IMG" <&3  &
 
-
+#TRANSLATORS Window main text
 TEXT1="$(gettext 'Select colors for new folder theme')"
 
 yad --paned --key=$rkey \
@@ -301,7 +301,7 @@ esac
 
 exec 3>&-
 
-#check from pf-settings
+### check from pf-settings
 if [ "$FROM_PFSETTINGS" = "frompfs" ]; then
 
     source $TEMP_COLORFILE
@@ -319,18 +319,27 @@ if [ "$FROM_PFSETTINGS" = "frompfs" ]; then
 
 else
 
-#name and target yad window
+### name and target yad window
 
+#TRANSLATORS Name and target text (line 1)
     TEXT_NAME1="$(gettext 'Name, location and type of new folder theme.')"
+#TRANSLATORS Name and target text (line 2)
     TEXT_NAME2="$(gettext 'It may take a few seconds to generate the new theme.')"
+#TRANSLATORS Name and target text (line 3)
     TEXT_NAME2A="$(gettext 'Be patient and wait for the confirmation window.')"
+#TRANSLATORS label for dropdown to select symbol type of new icon theme
     TEXT_NAME3="$(gettext 'Window theme symbols')"
+#TRANSLATORS Name and target text (line 4) - do not translate "light ="
     TEXT_NAME4="$(gettext 'light = create symbols for light colored window themes')"
+#TRANSLATORS Name and target text (line 5) - do not translate "dark ="
     TEXT_NAME5="$(gettext 'dark = create symbols for dark colored window themes')"
+#TRANSLATORS Name and target text (line 6) - do not translate "dark ="
     TEXT_NAME6="$(gettext 'dark = appends "-dark" automatically to end of theme name')"
 
+#TRANSLATORS label for textbox to enter name of new icon theme
     TEXT_TARGET1="$(gettext 'Save theme as')"
     TEXT_TARGET2="$USER"
+#TRANSLATORS label for dropdown to select save location of new icon theme
     TEXT_TARGET3="$(gettext 'Save theme in')"
 
     if [ ! -d $HOME/.icons ]; then
@@ -364,31 +373,35 @@ case $ret in
     ;;
 
     8 )
-#read colors
+### read colors
 
     if [ "$FROM_PFSETTINGS" != "frompfs" ]; then
-        source $TEMP_COLORFILE
-        colors=("$temp1" "$temp2" "$temp3" "$iconswitch")
-        read -r -a COLORS < $YAD_TARGETS
+
+        read COLORS < $YAD_TARGETS
 
         COLORS=$(echo $COLORS | sed -e "s/||/THEMEHASNONAME|/g")
+        COLORS=$(echo $COLORS | sed -e "s/ /_/g")
         COLORS=$(echo $COLORS | sed -e "s/|/ /g")
-        colors+=($COLORS)
+        colors=($COLORS)
+        
+        source $TEMP_COLORFILE
+        colors+=("$temp1" "$temp2" "$temp3" "$iconswitch")
 
-        COLOR_MAIN_NEW="${colors[0]}"
-        COLOR_TOP_NEW="${colors[1]}"
-        COLOR_SYMBOL_NEW="${colors[2]}"
-        ICONSWITCH="${colors[3]}"
-        NAME_NEW="${colors[4]}"
-        TARGET_NEW="${colors[5]}"
-        TYPE_NEW="${colors[6]}"
+        NAME_NEW="${colors[0]}"
+        TARGET_NEW="${colors[1]}"
+        TYPE_NEW="${colors[2]}"
+        COLOR_MAIN_NEW="${colors[3]}"
+        COLOR_TOP_NEW="${colors[4]}"
+        COLOR_SYMBOL_NEW="${colors[5]}"
+        ICONSWITCH="${colors[6]}"
 
         PFR_NAME="Papirus-$NAME_NEW"
 
 
-#check new theme name
+### check new theme name
         while [ "$PFR_NAME" = "Papirus-THEMEHASNONAME" ]; do
 
+#TRANSLATORS warning message if new theme is not given a name
             TEXT_NEWNAME1="$(gettext 'New icon theme needs a name')"
 
             NAME_NEW=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
@@ -414,7 +427,7 @@ case $ret in
     fi
 
 
-#check dark theme
+### check dark theme
 
     if [ "$FROM_PFSETTINGS" = "frompfs" ]; then    
         PFR_NAME=$(echo $PFR_NAME | sed -e "s/-dark//")
@@ -433,11 +446,13 @@ case $ret in
     fi
 
 
-#check if theme name exists, if yes ask if overwrite or different name
+### check if theme name exists, if yes ask if overwrite or different name
 
     while [ -d "$TARGET_NEW"/"$PFR_NAME$DARKNAME" ]; do
 
+#TRANSLATORS warning message if icon theme name already exists (line 1) - text is preceded by theme name
         TEXT_OVERWRITE_1="$(gettext 'already exists.')"
+#TRANSLATORS warning message if icon theme name already exists (line 2)
         TEXT_OVERWRITE_2="$(gettext 'Do you want to overwrite the icon theme or save with a different name?')"
 
         yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
@@ -464,8 +479,9 @@ case $ret in
                 ;;
 
             18 )
-                TEXT_SAVEAS_1="$(gettext 'New name')"
-                
+#TRANSLATORS window text - asking for new icon theme name
+                 TEXT_SAVEAS_1="$(gettext 'New name')"
+
                 NAME_NEW=$(echo $PFR_NAME | sed -e "s/Papirus-//")
 
                 NAME_NEW=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
@@ -490,14 +506,14 @@ case $ret in
 
     done
 
-#revert usr/share override
+### revert usr/share override
     if [ "$PFR_NAME" = "tempoverride" ]; then
         PFR_NAME=$PFR_NAME_USRSHARE
     fi
 
 
 
-#template colours-CLASSSIC
+### template colours-CLASSSIC
     if [ "$ICONSWITCH" = "classic" ]; then
         COLOR_MAIN=#6BA4E7      
         COLOR_TOP=#86460b
@@ -512,7 +528,7 @@ case $ret in
 
 
 
-#make recolor-list.conf
+### make recolor-list.conf
 
     printf "PFR_NAME=$PFR_NAME$DARKNAME
     COLOR_MAIN=$COLOR_MAIN
@@ -525,7 +541,7 @@ case $ret in
     ICONSWITCH=$ICONSWITCH 
     TYPE_NEW=$TYPE_SET" > /tmp/pfr-list.conf
 
-#check target and make new theme
+### check target and make new theme
 
     if [ "$TARGET_NEW" = "$HOME/.local/share/icons" -o "$TARGET_NEW" = "$HOME/.icons" ]; then
 
@@ -541,10 +557,9 @@ case $ret in
         
 
     elif [ "$TARGET_NEW" = '/usr/share/icons' ]; then
-#  rm -r $TARGET_NEW/$PFR_NAME$DARK &&
 
         if [ "$USRSHARE_EXISTS" = "true" ]; then
-  
+
             if [ "$ICONSWITCH" = "classic" ]; then
                 pkexec bash -c "rm -r $TARGET_NEW/$PFR_NAME$DARK &&
                 cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
@@ -572,12 +587,15 @@ case $ret in
 
     fi
 
-#finished message
+### finished message
 
     if [ -d $TARGET_NEW/$PFR_NAME$DARKNAME ]; then
 
+#TRANSLATORS completed window text 1- text is preceded by new icon theme name
         FINSHTEXT1="$(gettext 'icon theme created in')"
+#TRANSLATORS completed window text 2
         FINSHTEXT2="$(gettext 'Change icon theme with MX-Tweak')"
+#TRANSLATORS button label
         FINSHTEXT3="$(gettext 'Open MX-Tweak')"
 
         yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
@@ -591,6 +609,7 @@ case $ret in
 
     else
 
+#TRANSLATORS completed window error message
         FINSHTEXT4="$(gettext 'OOPS! Something went wrong with Papirus-folder-recolor.')"
 
         yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \

@@ -1,26 +1,34 @@
 #!/bin/bash
 
-#This app was developed by MX Devs 2023 and released under GPLv3
-#It uses the Bunsenlabs script 'papirus-folder-color.sh' by John Crawley <john@bunsenlabs.org>
-#https://github.com/BunsenLabs/bunsen-papirus-icon-theme/blob/beryllium/papirus-folder-color.sh
+### This app was developed by MX Devs 2023 and released under GPLv3
+### It uses the Bunsenlabs script 'papirus-folder-color.sh' by John Crawley <john@bunsenlabs.org>
+### https://github.com/BunsenLabs/bunsen-papirus-icon-theme/blob/beryllium/papirus-folder-color.sh
 
 ### Name=Papirus-folder-settings
-#Version=23.12-2
+### Version=24.01.01
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
 source gettext.sh
 
 SETTINGSKEY=$RANDOM
+
+#TRANSLATORS app name for titlebar text
 export TITLE="$(gettext 'Papirus Folder Settings')"
 export CLASS="mx-pfc"
 export ICONPATH="/usr/share/pixmaps/papirus-folder-settings.svg"
 
+#TRANSLATORS button label
 export BTN_CLOSE=$(gettext "Close")      ; BTN_CLOSE+='!window-close'
+#TRANSLATORS button label
 export BTN_RELOAD=$(gettext "Reload list")      ; BTN_RELOAD+='!reload'
+#TRANSLATORS button label
 export BTN_MOVE=$(gettext "Move Folder Theme")      ; BTN_MOVE+='!sidebar-places'
+#TRANSLATORS button label
 export BTN_RENAME=$(gettext "Rename Folder Theme")      ; BTN_RENAME+='!edit'
+#TRANSLATORS button label
 export BTN_DELETE=$(gettext "Delete Folder Theme")      ; BTN_DELETE+='!delete'
+#TRANSLATORS button label
 export BTN_EDIT=$(gettext "Edit Folder Colors")      ; BTN_EDIT+='!color-select'
 
 fn_imagelist () {
@@ -32,7 +40,10 @@ else
 fi
 
 if [ -z "$THEME_LIST" ]; then
+
+#TRANSLATORS warning message if no themes are available
     TEXT_NOLIST="$(gettext 'No themes have been created yet')"
+
     yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
     --borders=10 --center --width=300 --height=200 --fixed  --separator="" \
     --text="\n\n<b>$TEXT_NOLIST !</b>\n" --text-align=center \
@@ -73,7 +84,11 @@ FUNC_INPUT=$1
 FOLDER_NAME=$(tail -n 1 /tmp/pfs-themename)
 
 if [ -z "$FOLDER_NAME" ]; then
+
+#TRANSLATORS warning message if no item is selected in theme list
     TEXT_WARN="$(gettext 'No theme selected')"
+
+
     yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
     --borders=10 --center --width=300 --height=200 --fixed  --separator="" \
     --text="\n\n<b>$TEXT_WARN !</b>\n" --text-align=center \
@@ -91,7 +106,7 @@ fn_imagelist
 }
 
 
-#settings window
+### settings window
 
 make_tempfile () {
 echo > /tmp/pfs-themename
@@ -105,7 +120,7 @@ make_tempfile
 
 fn_imagelist
 
-#yad
+### yad
 
 until [ "$FINISHED" = "finished" ]
 do
@@ -129,6 +144,7 @@ rm /tmp/pfs_images.txt
     --field="$BTN_DELETE":FBTN '@bash -c "fn_dostuff settings_delete"' \
     &
 
+#TRANSLATORS settings window instruction text
     TEXT_SETTINGS1="$(gettext 'Select a folder theme')"
 
     yad --paned --key=$SETTINGSKEY --orient=Vertical --splitter=175 \

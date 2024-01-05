@@ -1,35 +1,57 @@
 #!/bin/bash
 
-#This app was developed by MX Devs 2023 and released under GPLv3
+### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-colors
-VERSION=23.12.04
+VERSION=24.01.01
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
 source gettext.sh
 
 
-#define about function
+### check papirus icons are installed
+if [ ! -d /usr/share/icons/Papirus  -o  ! -d /usr/share/icons/Papirus-mxblue ]; then
+#TRANSLATORS warning message if papirus icons are not installed line 1
+    TEXT_NOPAPIRUS_1="$(gettext 'Papirus icon themes not found!')"
+#TRANSLATORS warning message if papirus icons are not installed line 2 - text is followed by required path
+    TEXT_NOPAPIRUS_2="$(gettext 'This tool requires the Papirus and Papirus-mxblue icon themes to be installed in')"
+    
+    yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+    --borders=10 --center --width=300 --height=200 \
+    --text="\n\n<b>$TEXT_NOPAPIRUS_1</b>\n\n$TEXT_NOPAPIRUS_2\n<b>/usr/share/icons</b>" --text-align=center \
+    --button="${BTN_CLOSE}":6 \
+    
+    exit
+    
+fi
+
+### define about function
 pfc_about () {
 
-# buttons
-#export BTN_LICENSE=$(gettext "License")
-#export BTN_CHANGELOG=$(gettext "Changelog")
+### set some variables
 
-#set some variables
+#TRANSLATORS titlebar text
 TITLE="$(gettext 'About Papirus Folder Colors')"
 CLASS="mx-pfc"
 ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
 
+###buttons
+
+#TRANSLATORS button label
 BTN_LICENSE=$(gettext "License")
+#TRANSLATORS button label
 BTN_CHANGELOG=$(gettext "Changelog"); BTN_CHANGELOG+='!preferences-system-time-symbolic'
+#TRANSLATORS button label
 BTN_CLOSE=$(gettext "Close"); BTN_CLOSE+='!window-close'
 
-#about window
+###about window
+
+#TRANSLATORS app name for titlebar text
 ABOUTTEXT_TOP="$(gettext 'Papirus Folder Colors')"
+#TRANSLATORS about window text
 ABOUTTEXT_1="$(gettext 'Version')"
-ABOUTTEXT_2="$(gettext 'Tool to change folder colors')"
-ABOUTTEXT_3="$(gettext 'of the Papirus icon theme')"
+#TRANSLATORS about window text
+ABOUTTEXT_2="$(gettext 'Tool to change folder colors of the Papirus icon theme')"
 ABOUTTEXT_4="<b>mxlinux.org</b>"
 ABOUTTEXT_5="Copyright (c) Melber - MX Linux"
 
@@ -45,7 +67,6 @@ yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
 --field="$ABOUTTEXT_1 $VERSION":LBL " " \
 --field=" ":LBL " " \
 --field="<big>$ABOUTTEXT_2</big>":LBL " " \
---field="<big>$ABOUTTEXT_3</big>":LBL " " \
 --field=" ":LBL " " \
 --field=" ":LBL " " \
 --field="$ABOUTTEXT_4":BTN 'sensible-browser https://mxlinux.org' \
@@ -91,25 +112,37 @@ TITLE="$(gettext 'Papirus Folder Colors')"
 export -f pfc_about
 
 
-# buttons
+### buttons
+
+#TRANSLATORS button label
 export BTN_ABOUT=$(gettext "About")      ; BTN_ABOUT+='!help-about'
+#TRANSLATORS button label
 export BTN_CLOSE=$(gettext "Close")      ; BTN_CLOSE+='!window-close'
+#TRANSLATORS button to select function in main window
 export BTN_RECOLOR=$(gettext "Papirus Folder Recolor")    ; BTN_RECOLOR+='!/usr/share/pixmaps/papirus-folder-recolor.svg'
+#TRANSLATORS button to select function in main window
 export BTN_THEMES=$(gettext "Papirus Folder Themes")    ; BTN_THEMES+='!/usr/share/pixmaps/papirus-folder-themes.svg'
+#TRANSLATORS button to select function in main window
 export BTN_SETTINGS=$(gettext "Manage Folder Themes")    ; BTN_SETTINGS+='!/usr/share/pixmaps/papirus-folder-settings.svg'
 
-#set some variables
+### set some variables
+
+#TRANSLATORS app name for titlebar text
 TITLE="$(gettext 'Papirus Folder Colors')"
 CLASS="mx-pfc"
 ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
 
 
 #####
-#main yad window
+### main yad window
 
+#TRANSLATORS main window text line 1
 TEXT_TOP="$(gettext 'Create a new icon theme with different colors')"
+#TRANSLATORS main window text line 2
 TEXT_1="$(gettext 'Select element colors directly')"
+#TRANSLATORS main window text line 3
 TEXT_2="$(gettext 'Select from predefined themes')"
+#TRANSLATORS main window text line 4
 TEXT_3="$(gettext 'Manage themes created with this tool')"
 
 

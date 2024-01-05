@@ -11,7 +11,7 @@ make_po()
 for val in $lang; do
     if [ ! -e "po/$val/$RESOURCE.po" ]; then
         mkdir -p po/$val
-        msginit --input=po/"$RESOURCE".pot --no-translator --locale=$val --output=po/${"RESOURCE"}_${val}.po
+        msginit --input=pot/"$RESOURCE".pot --no-translator --locale=$val --output=po/"$RESOURCE"_"$val".po
     else
         msgmerge --update po/"${RESOURCE}_${val}.po" po/$RESOURCE.pot
     fi
@@ -23,7 +23,7 @@ make_pot()
 if [ ! -d "pot" ]; then
     mkdir pot
 fi
-xgettext --language Shell  --add-comments -o pot/$RESOURCE.pot ../scripts/papirus-folder-color.sh ../scripts/papirus-folder-colors ../scripts/papirus-folder-editcolors ../scripts/papirus-folder-editsettings ../scripts/papirus-folder-recolor ../scripts/papirus-folder-settings ../scripts/papirus-folder-themes
+xgettext --language Shell  --add-comments=TRANSLATORS -o pot/$RESOURCE.pot ../scripts/papirus-folder-colors ../scripts/papirus-folder-editsettings ../scripts/papirus-folder-recolor ../scripts/papirus-folder-settings ../scripts/papirus-folder-themes
 xgettext --language Desktop --join --add-comments -o pot/$RESOURCE.pot ../xdg/papirus-folder-colors.desktop.in
 }
 

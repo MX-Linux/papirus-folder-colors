@@ -11,9 +11,9 @@ icon_list=($ICON_LIST)
         
 for i in ${icon_list[@]}; do
 
-    sed -i "s/$COLOR_MAIN/$COLOR_MAIN_NEW/g" $i
-    sed -i "s/$COLOR_TOP/$COLOR_TOP_NEW/g" $i
-    sed -i "s/$COLOR_SYMBOL/$COLOR_SYMBOL_NEW/g" $i
+    sed -i "s/$COLOR_MAIN/$COLOR_MAIN_NEW/gi" $i
+    sed -i "s/$COLOR_TOP/$COLOR_TOP_NEW/gi" $i
+    sed -i "s/$COLOR_SYMBOL/$COLOR_SYMBOL_NEW/gi" $i
         
 done
 

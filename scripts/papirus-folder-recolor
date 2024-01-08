@@ -515,13 +515,13 @@ case $ret in
 
 ### template colours-CLASSSIC
     if [ "$ICONSWITCH" = "classic" ]; then
-        COLOR_MAIN=#6BA4E7      
+        COLOR_MAIN=#6ba4e7      
         COLOR_TOP=#86460b
         COLOR_SYMBOL=#ffffff
         
-        if [ "$CLASSIC_DARK" = "dark" ]; then
-           COLOR_MAIN=#6ba4e7
-        fi
+#        if [ "$CLASSIC_DARK" = "dark" ]; then
+#           COLOR_MAIN=#6ba4e7
+#        fi
     fi
 
 

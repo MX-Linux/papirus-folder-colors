@@ -1,3 +1,4 @@
 scripts/* usr/bin
 pixmaps/* usr/share/pixmaps
 *.desktop usr/share/applications
+translations/mo/* /

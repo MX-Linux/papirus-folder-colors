@@ -34,7 +34,7 @@ TEMP_NAMETARGET="$(mktemp --tmpdir theme-name-XXXXXX.txt)"
 
 ### assumed folder variations
 list_wanted=( yellow paleorange orange deeporange palebrown brown pink red magenta violet teal green cyan blue indigo bluegrey grey black white breeze )
-### removed  yaru adwaita custom nordic
+### removed yaru adwaita custom nordic
 
 ### existing folder variations
 LIST_FOUND=$(ls /usr/share/icons/Papirus/48x48/places/folder-*-desktop.svg | sed -e "s/folder\-//g" | sed -e "s/\-desktop\.svg//g")
@@ -69,8 +69,6 @@ do
 
 done
 
-
-### functions
 
 ### trap_function
 trap_function () {

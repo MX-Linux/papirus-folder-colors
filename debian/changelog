@@ -1,3 +1,12 @@
+papirus-folder-colors (24.01.01) mx; urgency=medium
+
+  * added translations
+  * added automatic substitution of space with underscore in new theme names
+  * updated pfr and pft icons
+  * added translator comments
+
+ -- Melber <melber.mx.linux@gmail.com>  Wed, 10 Jan 2024 23:13:01 +0100
+
 papirus-folder-colors (23.12.04) mx; urgency=medium
 
   * added changelog and license buttons in about window

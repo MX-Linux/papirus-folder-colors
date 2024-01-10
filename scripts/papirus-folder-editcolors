@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#This app was developed by MX Devs 2023 and released under GPLv3
-#Papirus-folder-editcolors
-#Version=23.12-2
+### This app was developed by MX Devs 2023 and released under GPLv3
+### Papirus-folder-editcolors
+### Version=24.01.01
 
 source /tmp/pfr-list.conf
 

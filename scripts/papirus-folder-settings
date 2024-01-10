@@ -1,9 +1,6 @@
 #!/bin/bash
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
-### It uses the Bunsenlabs script 'papirus-folder-color.sh' by John Crawley <john@bunsenlabs.org>
-### https://github.com/BunsenLabs/bunsen-papirus-icon-theme/blob/beryllium/papirus-folder-color.sh
-
 ### Name=Papirus-folder-settings
 ### Version=24.01.01
 

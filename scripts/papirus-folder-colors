@@ -2,7 +2,7 @@
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-colors
-VERSION=24.01.01
+VERSION=24.01.02
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
@@ -15,6 +15,11 @@ if [ ! -d /usr/share/icons/Papirus  -o  ! -d /usr/share/icons/Papirus-mxblue ]; 
     TEXT_NOPAPIRUS_1="$(gettext 'Papirus icon themes not found!')"
 #TRANSLATORS warning message if papirus icons are not installed line 2 - text is followed by required path
     TEXT_NOPAPIRUS_2="$(gettext 'This tool requires the Papirus and Papirus-mxblue icon themes to be installed in')"
+    
+    TITLE="$(gettext 'Papirus Folder Colors')"
+    CLASS="mx-pfc"
+    ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
+    BTN_CLOSE=$(gettext "Close"); BTN_CLOSE+='!window-close'
     
     yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
     --borders=10 --center --width=300 --height=200 \

@@ -2,7 +2,7 @@
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-themes
-### Version=24.01.01
+### Version=24.01.02
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
@@ -81,7 +81,7 @@ trap "rm "$TEMP_ICONTHEME" "$TEMP_NAMETARGET"" EXIT
 pft_select() {
 
 #TRANSLATORS window text
-TEXT1="Select a papirus folder theme."
+TEXT1="$(gettext 'Select a folder theme')"
 
 yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
 --borders=10 --center --width=400 --height=500 --separator=" " \
@@ -111,7 +111,7 @@ esac
 read -r -a TEMPNAME < $TEMP_ICONTHEME
 
 #TRANSLATORS Name and target text (line 1)
-TEXT2="Name, location and type of new folder theme."
+TEXT2="$(gettext 'Name, location and type of new folder theme.')"
 #TRANSLATORS Name and target text (line 2)
 TEXT2A="$(gettext 'It may take a few seconds to generate the new theme.')"
 #TRANSLATORS Name and target text (line 3)
@@ -163,7 +163,7 @@ case $ret in
 
         echo $COMBIBOXES
 
-        COMBIBOXES=$(echo $COMBIBOXES | sed -e "s/||/|THEMEHASNONAME/g")
+        COMBIBOXES=$(echo $COMBIBOXES | sed -e "s/||/|THEMEHASNONAME|/g")
         COMBIBOXES=$(echo $COMBIBOXES | sed -e "s/ /_/g")
         COMBIBOXES=$(echo $COMBIBOXES | sed -e "s/|/ /g")
 
@@ -184,7 +184,7 @@ case $ret in
         NAME_NEW=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
         --width=400 --height=200 --center --borders=10 --separator="" \
         --buttons-layout=spread --button="$BTN_CLOSE":12 --button="$BTN_CREATE":14 \
-        --text="\n$TEXT_NEWNAME1\n\n" \
+        --text="\n$TEXT_NEWNAME1\n\n" --text-align=center \
         --form \
         --field="Papirus-" "$NAME_NEW" )
 

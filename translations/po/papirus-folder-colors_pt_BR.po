@@ -192,13 +192,14 @@ msgstr "Definir um novo nome para o tema do ícone"
 #. TRANSLATORS completed window text
 #: ../scripts/papirus-folder-editsettings:242
 msgid "All done."
-msgstr ""
+msgstr "Foi processado com sucesso."
 
 #. TRANSLATORS completed window information text - "Reload List" translation
 #. to match button label, leave <b> markup tags
 #: ../scripts/papirus-folder-editsettings:244
 msgid "Use the <b> Reload List </b> button to update the folder list."
 msgstr ""
+"Utilize o botão <b>Recarregar a Lista</b> para atualizar a lista das pastas."
 
 #. TRANSLATORS completed window error message
 #: ../scripts/papirus-folder-editsettings:254

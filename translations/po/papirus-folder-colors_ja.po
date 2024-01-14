@@ -189,13 +189,13 @@ msgstr "新しい名前を選択してください。"
 #. TRANSLATORS completed window text
 #: ../scripts/papirus-folder-editsettings:242
 msgid "All done."
-msgstr ""
+msgstr "完了しました。"
 
 #. TRANSLATORS completed window information text - "Reload List" translation
 #. to match button label, leave <b> markup tags
 #: ../scripts/papirus-folder-editsettings:244
 msgid "Use the <b> Reload List </b> button to update the folder list."
-msgstr ""
+msgstr "フォルダリストを更新するには、<b>リストの再読み込み</b>ボタンを押してください。"
 
 #. TRANSLATORS completed window error message
 #: ../scripts/papirus-folder-editsettings:254

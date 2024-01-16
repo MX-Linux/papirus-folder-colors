@@ -8,5 +8,5 @@ Exec=papirus-folder-colors
 Terminal=false
 Type=Application
 Icon=papirus-folder-colors
-Categories=Settings;
+Categories=Settings;MX-Setup;
 NoDisplay=false

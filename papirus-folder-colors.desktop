@@ -1,5 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
+Name[ca]=Papirus Folder Colors
 Name[de]=Papirus Ordner Farben
 Name[el]=Papirus Folder Colors
 Name[es]=Colores de carpetas Papirus
@@ -14,9 +15,11 @@ Name[pt]=Cores de Pastas Papirus
 Name[pt_BR]=Cores das Pastas do Tema Papirus
 Name[ru_RU]=Цвет папок Papirus
 Name[sl]=Papirus barve mape
+Name[sq]=Ngjyra Dosjesh Papirus
 Name[sv]=Papirus Mappfärger
 Name=Papirus Folder Colors
-Comment[de]=Erstellen Sie ein Papirus-Symboltheme mit andersfarbigen Ordnern
+Comment[ca]=Crea un Tema d'icones Papirus amb carpetes de diferents colors
+Comment[de]=Erstelle ein Papirus-Symbolthema mit Ordnern in anderen Farben
 Comment[el]=Δημιουργία ενός θέματος εικονιδίων papirus με φακέλους διαφόρων χρωμάτων
 Comment[es]=Crear un tema de iconos Papirus con carpetas de distintos colores
 Comment[es_ES]=Crear un tema de iconos Papirus con carpetas de distintos colores
@@ -30,6 +33,7 @@ Comment[pt]=Crie um tema de ícones papirus com pastas de cores diferentes
 Comment[pt_BR]=O ‘Papirus Folder Colors’ é uma ferramenta que permite criar temas dos ícones para as pastas ou alterar as cores das pastas do tema Papirus
 Comment[ru_RU]=Создайте тему иконок Papirus с папками разных цветов
 Comment[sl]=Ustvari papirus ikonsko temo z različno obarvanimi mapami
+Comment[sq]=Krijoni një temë ikonas Papirus me dosje të ndryshme të ngjyrosura
 Comment[sv]=Skapa ett papirus ikontema med  mappar i andra färger
 Comment=Create a papirus icon theme with different colored folders
 Exec=papirus-folder-colors

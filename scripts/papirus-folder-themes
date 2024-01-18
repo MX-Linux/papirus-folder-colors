@@ -23,7 +23,7 @@ export BTN_SAVENEW=$(gettext "Create with new name")    ; BTN_SAVENEW+='!documen
 
 #TRANSLATORS app name for titlebar text
 TITLE="$(gettext 'Papirus Folder Themes')"
-CLASS="mx-pft"
+CLASS="papirus-folder-colors"
 ICONPATH="/usr/share/pixmaps/papirus-folder-themes.svg"
 
 

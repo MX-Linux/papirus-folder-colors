@@ -6,7 +6,7 @@
 
 #TRANSLATORS app name for titlebar text
 export TITLE="$(gettext 'Papirus Folder Settings')"
-export CLASS="mx-pfc"
+export CLASS="papirus-folder-colors"
 export ICONPATH="/usr/share/pixmaps/papirus-folder-settings.svg"
 
 #TRANSLATORS button label

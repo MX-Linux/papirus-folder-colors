@@ -17,7 +17,7 @@ if [ ! -d /usr/share/icons/Papirus  -o  ! -d /usr/share/icons/Papirus-mxblue ]; 
     TEXT_NOPAPIRUS_2="$(gettext 'This tool requires the Papirus and Papirus-mxblue icon themes to be installed in')"
     
     TITLE="$(gettext 'Papirus Folder Colors')"
-    CLASS="mx-pfc"
+    CLASS="papirus-folder-colors"
     ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
     BTN_CLOSE=$(gettext "Close"); BTN_CLOSE+='!window-close'
     
@@ -37,7 +37,7 @@ pfc_about () {
 
 #TRANSLATORS titlebar text
 TITLE="$(gettext 'About Papirus Folder Colors')"
-CLASS="mx-pfc"
+CLASS="papirus-folder-colors"
 ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
 
 ###buttons
@@ -134,7 +134,7 @@ export BTN_SETTINGS=$(gettext "Manage Folder Themes")    ; BTN_SETTINGS+='!/usr/
 
 #TRANSLATORS app name for titlebar text
 TITLE="$(gettext 'Papirus Folder Colors')"
-CLASS="mx-pfc"
+CLASS="papirus-folder-colors"
 ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
 
 

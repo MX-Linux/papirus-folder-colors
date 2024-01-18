@@ -1,0 +1,54 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 18 Jan 2024 14:16:47 -0500
+Source: papirus-folder-colors
+Binary: papirus-folder-colors
+Architecture: source all
+Version: 24.01.03
+Distribution: mx
+Urgency: medium
+Maintainer: Melber <melber.mx.linux@gmail.com>
+Changed-By: fehlix <fehlix@mxlinux.org>
+Description:
+ papirus-folder-colors - Create a papirus icon theme with different colored folders
+Changes:
+ papirus-folder-colors (24.01.03) mx; urgency=medium
+ .
+   * show papirus-folder-color icon instead of gear icon in xfce-panel
+   * make debian/rules file executable
+   * remove debian/files build artefact
+Checksums-Sha1:
+ e8dfa9a7240d8231155269873bbaea704c573520 1549 papirus-folder-colors_24.01.03.dsc
+ 1833f55a1be178badbe8fbc49367cabf249f42d4 56364 papirus-folder-colors_24.01.03.tar.xz
+ 65be32f406012fdeb9ff5aa27b7dc8f172428fea 35268 papirus-folder-colors_24.01.03_all.deb
+ 0a82a9ef836db7dad4709579fdae03360270dc78 6230 papirus-folder-colors_24.01.03_amd64.buildinfo
+Checksums-Sha256:
+ b95c7cfd887e99a9eb539a3b3845fec9e20cc7c317c04285a18b245b203e2041 1549 papirus-folder-colors_24.01.03.dsc
+ 13af699d96942938132674e2a220b77e188b4a11704369405e866d8b10db6ddd 56364 papirus-folder-colors_24.01.03.tar.xz
+ cc24e6fb3d0bda9cd3b0ca8c52c0bcd1fd04ab6303fc8155d8589c8c38f8b3db 35268 papirus-folder-colors_24.01.03_all.deb
+ e3c403f929c2c4ed3d8cbf445549300b5a8892a47d7a68e521c567cdea50a58a 6230 papirus-folder-colors_24.01.03_amd64.buildinfo
+Files:
+ 4929d4de99e695870e9e3871aab0ad42 1549 x11 optional papirus-folder-colors_24.01.03.dsc
+ f331375c1b5f3eaeff14354c84ae7cad 56364 x11 optional papirus-folder-colors_24.01.03.tar.xz
+ e9631dcc5345aea2877a7eeecff90a97 35268 x11 optional papirus-folder-colors_24.01.03_all.deb
+ 7c33d55ba3ac01883a3ca3b0e8800b9a 6230 x11 optional papirus-folder-colors_24.01.03_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJHBAEBCgAxFiEEgRnC8/wKXRM2S0xLL1ePG6ydm+kFAmWpqHcTHGZlaGxpeEBt
+eGxpbnV4Lm9yZwAKCRAvV48brJ2b6TQwEACrWXznhnhWq3fWd7/2ydZCOFJM+s3Q
+1ixeHl5vcRBc1lpefIXj0hxqqcXnN3Vu9N+w4AxNNPadgB989VYa51qslbHAim+u
+PU32/jO8XwkYtpPgjTgotWgGEBs9fML6mMD6rUyZG89Dp8LaKLQG3LjHXgQIhwEX
+JZyx4+LrbvVH24lornksGhQlND5XKT+9RYhls9RFeqZqB+IBDKoHFj5CZWq2I011
+rd3LM+ZJQLXshat7ZQSEqDGGvURaX3kAAVb+0xQP4VkvFLFRZF2BdkGbWroPtpJs
+omJVCqWo+lKpctWRjCc8cmyki7FhUrkF/aIRO/CiukOm1gOSGiS/IiZaZ8RjWLnn
+xksSl8fSPST0b9bibprVZrkT7rawvDC713g+LMHIM1MCUIaqq74DbDYUn1ETePZg
+VdsqbvzOcXkDxzowOebal1bCQ/ThrSwne9bFWKGz3HtkduGukPQzsM+lNxaa/MT8
+BYLEoZa04EgGEvP6ck3JIC3GXNPfyG/9wwMP2wWVAtgIFK1vnB9i211rnuGCUdTU
+IVrwNO+nAoByUPFn4xmgd2eIEB/g+CvFGYv/4XMs5g52cXFckZ0q1UrkweA1GaXx
+/m9j34Rk07w4W10kegzEC7Z/u139O1oGm6D/C0DK4JF4OBjtJr/fHZ3eQAXaZul6
+EwtG7Eog5wzrdA==
+=yTbS
+-----END PGP SIGNATURE-----

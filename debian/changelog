@@ -1,3 +1,11 @@
+papirus-folder-colors (24.01.03) mx; urgency=medium
+
+  * show papirus-folder-color icon instead of gear icon in xfce-panel
+  * make debian/rules file executable
+  * remove debian/files build artefact
+
+ -- fehlix <fehlix@mxlinux.org>  Thu, 18 Jan 2024 14:16:47 -0500
+
 papirus-folder-colors (24.01.02) mx; urgency=medium
 
   * updated translations (thank you to all our volunteer translators)

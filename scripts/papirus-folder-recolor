@@ -25,7 +25,7 @@ export BTN_SAVENEW=$(gettext "Create with new name")    ; BTN_SAVENEW+='!documen
 
 #TRANSLATORS app name for titlebar text
 TITLE="$(gettext 'Papirus Folder Recolor')"
-CLASS="mx-pfr"
+CLASS="papirus-folder-colors"
 ICONPATH="/usr/share/pixmaps/papirus-folder-recolor.svg"
 
 
@@ -134,7 +134,7 @@ color_picker () {
 
 #TRANSLATORS app name for titlebar text
 TITLE="$(gettext 'Papirus Folder Recolor')"
-CLASS="mx-pfr"
+CLASS="papirus-folder-colors"
 ICONPATH="/usr/share/pixmaps/papirus-folder-recolor.svg"
 
 local N_CP=$1
@@ -178,7 +178,7 @@ if [ "$N" != "0" ]; then
     if [ "$C" = "$temp1" -o "$C" = "$temp2" -o "$C" = "$temp3" ]; then
 
         TITLE="$(gettext 'Papirus Folder Recolor')"
-        CLASS="mx-pfr"
+        CLASS="papirus-folder-colors"
         ICONPATH="usr/share/pixmaps/papirus-folder-recolor.svg"
 #TRANSLATORS warning message if color is already used - line 1
         TEXT_WARNCOLOR1="$(gettext 'An icon element is already using this color.')"

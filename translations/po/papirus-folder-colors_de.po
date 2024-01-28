@@ -235,7 +235,7 @@ msgstr "Wähle eine andere Farbe aus."
 #. TRANSLATORS Button text
 #: ../scripts/papirus-folder-recolor:239
 msgid "Toggle Icon Style"
-msgstr "Ornderstil umschalten"
+msgstr "Ordnerstil umschalten"
 
 #. TRANSLATORS Window text
 #: ../scripts/papirus-folder-recolor:241

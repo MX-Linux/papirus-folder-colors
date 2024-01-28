@@ -189,13 +189,14 @@ msgstr "Valitse uusi nimi."
 #. TRANSLATORS completed window text
 #: ../scripts/papirus-folder-editsettings:242
 msgid "All done."
-msgstr ""
+msgstr "Valmista."
 
 #. TRANSLATORS completed window information text - "Reload List" translation
 #. to match button label, leave <b> markup tags
 #: ../scripts/papirus-folder-editsettings:244
 msgid "Use the <b> Reload List </b> button to update the folder list."
 msgstr ""
+"Käytä <b>Päivitä luettelo</b> painiketta, joka päivittää kansioluettelon."
 
 #. TRANSLATORS completed window error message
 #: ../scripts/papirus-folder-editsettings:254
@@ -341,7 +342,7 @@ msgstr "OHO! Jokin meni vikaan, Papirus-folder-recolor."
 #. TRANSLATORS button label
 #: ../scripts/papirus-folder-settings:21
 msgid "Reload list"
-msgstr "Lataa lista uudelleen"
+msgstr "Päivitä luettelo"
 
 #. TRANSLATORS button label
 #: ../scripts/papirus-folder-settings:23

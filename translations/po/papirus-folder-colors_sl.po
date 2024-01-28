@@ -330,7 +330,7 @@ msgstr "Spremenite ikonsko temo z MX-Prilaogditve"
 #. TRANSLATORS button label
 #: ../scripts/papirus-folder-recolor:599 ../scripts/papirus-folder-themes:311
 msgid "Open MX-Tweak"
-msgstr "Odpri MX Prilagoditve"
+msgstr "Odpri MX prilagoditve"
 
 #. TRANSLATORS completed window error message
 #: ../scripts/papirus-folder-recolor:613

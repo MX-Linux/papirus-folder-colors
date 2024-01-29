@@ -2,11 +2,16 @@
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-colors
-VERSION=24.01.02
+VERSION=24.01.04
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
 source gettext.sh
+
+TITLE="$(gettext 'Papirus Folder Colors')"
+CLASS="papirus-folder-colors"
+ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
+BTN_CLOSE=$(gettext "Close"); BTN_CLOSE+='!window-close'
 
 
 ### check papirus icons are installed
@@ -15,12 +20,8 @@ if [ ! -d /usr/share/icons/Papirus  -o  ! -d /usr/share/icons/Papirus-mxblue ]; 
     TEXT_NOPAPIRUS_1="$(gettext 'Papirus icon themes not found!')"
 #TRANSLATORS warning message if papirus icons are not installed line 2 - text is followed by required path
     TEXT_NOPAPIRUS_2="$(gettext 'This tool requires the Papirus and Papirus-mxblue icon themes to be installed in')"
-    
-    TITLE="$(gettext 'Papirus Folder Colors')"
-    CLASS="papirus-folder-colors"
-    ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
-    BTN_CLOSE=$(gettext "Close"); BTN_CLOSE+='!window-close'
-    
+
+
     yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
     --borders=10 --center --width=300 --height=200 \
     --text="\n\n<b>$TEXT_NOPAPIRUS_1</b>\n\n$TEXT_NOPAPIRUS_2\n<b>/usr/share/icons</b>" --text-align=center \
@@ -28,6 +29,22 @@ if [ ! -d /usr/share/icons/Papirus  -o  ! -d /usr/share/icons/Papirus-mxblue ]; 
     
     exit
     
+fi
+
+### check if papirus-folder script has edited symlinks
+
+if [ -f /var/lib/papirus-folders/keep ]; then
+
+    TEXT_EDITEDSYMLINKS1="$(gettext 'Papirus icons seem to have been modified with the papirus-folder script.')"
+    TEXT_EDITEDSYMLINKS2="$(gettext 'Use the -D option to restore Papirus icons to their default state.')"
+
+    yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+    --borders=10 --center --width=300 --height=200 \
+    --text="\n\n$TEXT_EDITEDSYMLINKS1\n\n$TEXT_EDITEDSYMLINKS2" --text-align=center \
+    --button="${BTN_CLOSE}":6 \
+    
+    exit
+
 fi
 
 ### define about function
@@ -67,6 +84,7 @@ yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
 --image="/usr/share/pixmaps/papirus-folder-colors-96.svg" \
 --buttons-layout=spread --button="${BTN_LICENSE}":12 --button="${BTN_CHANGELOG}":10 --button="${BTN_CLOSE}":1 \
 --form --columns=1 --align=center \
+--field=" ":LBL " " \
 --field="<b><big>$ABOUTTEXT_TOP</big></b>":LBL " " \
 --field=" ":LBL " " \
 --field="$ABOUTTEXT_1 $VERSION":LBL " " \

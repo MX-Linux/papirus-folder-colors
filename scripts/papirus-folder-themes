@@ -2,7 +2,7 @@
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-themes
-### Version=24.01.02
+### Version=24.01.04
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
@@ -192,10 +192,15 @@ case $ret in
 
         case $GETOUT in
             12 | 252 )
-            exit
+                exit
             ;;
             14 )
-            PFT_NAME="Papirus-$NAME_NEW"
+                if [ "$NAME_NEW" = "" ]; then
+                    NAME_NEW=THEMEHASNONAME
+                fi
+
+                NAME_NEW=$(echo $NAME_NEW | sed -e "s/ /_/g")
+                PFT_NAME="Papirus-$NAME_NEW"
             ;;
         esac
         done
@@ -246,8 +251,9 @@ case $ret in
             18 )
 #TRANSLATORS window text - asking for new icon theme name
                 TEXT_SAVEAS_1="$(gettext 'New name')"
-                
+
                 NAME_NEW=$(echo $PFT_NAME | sed -e "s/Papirus-//")
+                NAME_EMPTYCHECK=$NAME_NEW
 
                 NAME_NEW=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
                 --width=400 --height=200 --text-align=center --center --borders=10 --separator="" \
@@ -256,13 +262,19 @@ case $ret in
                 --form \
                 --field="Papirus-" "$NAME_NEW" )
 
+
                 case $? in
                 252 )
                     exit 0
                 ;;
 
                 26 )
-                PFT_NAME="Papirus-$NAME_NEW"
+                    if [ "$NAME_NEW" = "" ]; then
+                        NAME_NEW=$NAME_EMPTYCHECK
+                    fi
+
+                    NAME_NEW=$(echo $NAME_NEW | sed -e "s/ /_/g")
+                    PFT_NAME="Papirus-$NAME_NEW"
                 ;;
                 esac
             ;;
@@ -278,12 +290,23 @@ case $ret in
         read PFT_COLOR < $TEMP_ICONTHEME
         PFT_COLOR=$(echo $PFT_COLOR | sed -e 's/|//g')
 
+### progress yad
+{
+waittime=0
+echo $waittime
+echo "# $((waittime))%"
+      
+### create icon theme
 
         if [ "$PFT_TARGET" = "$HOME/.local/share/icons" -o "$PFT_TARGET" = "$HOME/.icons" ]; then
 
             if [ ! -d $PFT_TARGET ]; then
                 mkdir $PFT_TARGET
             fi
+
+waittime=25
+echo $waittime
+echo "# $((waittime))%"
 
             papirus-folder-color.sh --color $PFT_COLOR --name $PFT_NAME$PFT_DARKNAME --target_path $PFT_TARGET $PFT_DARK
 
@@ -298,6 +321,18 @@ case $ret in
         
         fi
 
+waittime=75
+echo $waittime
+echo "# $((waittime))%"
+sleep 2
+waittime=100
+echo $waittime
+echo "# $((waittime))%"
+
+} | yad --progress --title="$TITLE" --class="$CLASS" \
+--borders=10 --center --width=400 --height=100 \
+--auto-close \
+--auto-kill
 
 ### finished message
 
@@ -310,10 +345,21 @@ case $ret in
 #TRANSLATORS button label
         TEXT5="$(gettext 'Open MX-Tweak')"
 
-        yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
-        --borders=10 --center --width=400 --height=300 --text-align=center \
-        --text="\n<b>$PFT_NAME$PFT_DARKNAME</b>\n$TEXT3 $PFT_TARGET\n\n<b>$TEXT4</b>" \
-        --buttons-layout=spread --button="$TEXT5":'mx-tweak --theme' --button="${BTN_CLOSE}"
+            if [ x"${DESKTOP_SESSION##*/}" = x"plasma" ]; then
+
+            yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+            --borders=10 --center --width=400 --height=300 --text-align=center \
+            --text="\n<b>$PFT_NAME$PFT_DARKNAME</b>\n$TEXT3 $PFT_TARGET\n\n" \
+            --buttons-layout=spread --button="${BTN_CLOSE}"
+
+            else
+
+            yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+            --borders=10 --center --width=400 --height=300 --text-align=center \
+            --text="\n<b>$PFT_NAME$PFT_DARKNAME</b>\n$TEXT3 $PFT_TARGET\n\n<b>$TEXT4</b>" \
+            --buttons-layout=spread --button="$TEXT5":'mx-tweak --theme' --button="${BTN_CLOSE}"
+            
+            fi
 
         else
 
@@ -330,7 +376,7 @@ case $ret in
     ;;
 
 esac
-        
+
 
 }
 

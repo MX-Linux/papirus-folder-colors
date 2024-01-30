@@ -2,7 +2,7 @@
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-recolor
-### Version=24.01.01
+### Version=24.01.04
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
@@ -338,7 +338,7 @@ else
 
 #TRANSLATORS label for textbox to enter name of new icon theme
     TEXT_TARGET1="$(gettext 'Save theme as')"
-    TEXT_TARGET2="$USER"
+    TEXT_TARGET2="$USER-theme"
 #TRANSLATORS label for dropdown to select save location of new icon theme
     TEXT_TARGET3="$(gettext 'Save theme in')"
 
@@ -403,6 +403,9 @@ case $ret in
 
 #TRANSLATORS warning message if new theme is not given a name
             TEXT_NEWNAME1="$(gettext 'New icon theme needs a name')"
+            
+
+            NAME_EMPTYCHECK=$NAME_NEW
 
             NAME_NEW=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
             --width=400 --height=200 --center --borders=10 --separator="" \
@@ -419,7 +422,12 @@ case $ret in
                     exit 0
                 ;;
                 14 )
-                PFR_NAME="Papirus-$NAME_NEW"
+                    if [ "$NAME_NEW" = "" ]; then
+                        NAME_NEW=$NAME_EMPTYCHECK
+                    fi
+                    
+                    NAME_NEW=$(echo $NAME_NEW | sed -e "s/ /_/g")
+                    PFR_NAME="Papirus-$NAME_NEW"
                 ;;
             esac
         done
@@ -480,9 +488,11 @@ case $ret in
 
             18 )
 #TRANSLATORS window text - asking for new icon theme name
-                 TEXT_SAVEAS_1="$(gettext 'New name')"
+                TEXT_SAVEAS_1="$(gettext 'New name')"
 
                 NAME_NEW=$(echo $PFR_NAME | sed -e "s/Papirus-//")
+
+                NAME_EMPTYCHECK=$NAME_NEW
 
                 NAME_NEW=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
                 --width=400 --height=200 --text-align=center --center --borders=10 --separator="" \
@@ -498,7 +508,12 @@ case $ret in
                 ;;
 
                 26 )
-                PFR_NAME="Papirus-$NAME_NEW"
+                    if [ "$NAME_NEW" = "" ]; then
+                        NAME_NEW=$NAME_EMPTYCHECK
+                    fi
+
+                    NAME_NEW=$(echo $NAME_NEW | sed -e "s/ /_/g")
+                    PFR_NAME="Papirus-$NAME_NEW"
                 ;;
                 esac
             ;;
@@ -512,20 +527,23 @@ case $ret in
     fi
 
 
-
 ### template colours-CLASSSIC
     if [ "$ICONSWITCH" = "classic" ]; then
         COLOR_MAIN=#6ba4e7      
         COLOR_TOP=#86460b
         COLOR_SYMBOL=#ffffff
-        
+
 #        if [ "$CLASSIC_DARK" = "dark" ]; then
 #           COLOR_MAIN=#6ba4e7
 #        fi
     fi
 
 
-
+### progress yad
+{
+waittime=0
+echo $waittime
+echo "# $((waittime))%"
 
 
 ### make recolor-list.conf
@@ -541,6 +559,10 @@ case $ret in
     ICONSWITCH=$ICONSWITCH 
     TYPE_NEW=$TYPE_SET" > /tmp/pfr-list.conf
 
+waittime=25
+echo $waittime
+echo "# $((waittime))%"
+
 ### check target and make new theme
 
     if [ "$TARGET_NEW" = "$HOME/.local/share/icons" -o "$TARGET_NEW" = "$HOME/.icons" ]; then
@@ -549,12 +571,14 @@ case $ret in
             cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME
             sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME$DARKNAME/index.theme
             papirus-folder-editcolors
+
+            gtk-update-icon-cache "$TARGET_NEW/$PFR_NAME$DARKNAME"
+
         else
             papirus-folder-color.sh --color blue --name $PFR_NAME$DARKNAME --target_path $TARGET_NEW $TYPE_NEW
             papirus-folder-editcolors
         fi
 
-        
 
     elif [ "$TARGET_NEW" = '/usr/share/icons' ]; then
 
@@ -565,6 +589,9 @@ case $ret in
                 cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
                 sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME/index.theme &&
                 papirus-folder-editcolors"
+
+                gtk-update-icon-cache "$TARGET_NEW/$PFR_NAME$DARKNAME"
+
             else
                 pkexec bash -c "rm -r $TARGET_NEW/$PFR_NAME$DARKNAME &&
                 papirus-folder-color.sh --color blue --name $PFR_NAME$DARKNAME --target_path $TARGET_NEW $TYPE_NEW &&
@@ -572,7 +599,7 @@ case $ret in
             fi
 
         else
-        
+
             if [ "$ICONSWITCH" = "classic" ]; then
                 pkexec bash -c "cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
                 sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME/index.theme &&
@@ -587,6 +614,20 @@ case $ret in
 
     fi
 
+waittime=75
+echo $waittime
+echo "# $((waittime))%"
+sleep 2
+waittime=100
+echo $waittime
+echo "# $((waittime))%"
+
+} | yad --progress --title="$TITLE" --class="$CLASS" \
+--borders=10 --center --width=400 --height=100 \
+--auto-close \
+--auto-kill
+
+
 ### finished message
 
     if [ -d $TARGET_NEW/$PFR_NAME$DARKNAME ]; then
@@ -598,10 +639,23 @@ case $ret in
 #TRANSLATORS button label
         FINSHTEXT3="$(gettext 'Open MX-Tweak')"
 
+        if [ x"${DESKTOP_SESSION##*/}" = x"plasma" ]; then
+
+        yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
+        --borders=10 --center --width=400 --height=300 --text-align=center \
+        --text="\n<b>$PFR_NAME$DARKNAME</b>\n$FINSHTEXT1 $TARGET_NEW\n\n" \
+        --buttons-layout=spread --button="${BTN_CLOSE}"
+
+        else
+
         yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
         --borders=10 --center --width=400 --height=300 --text-align=center \
         --text="\n<b>$PFR_NAME$DARKNAME</b>\n$FINSHTEXT1 $TARGET_NEW\n\n<b>$FINSHTEXT2</b>" \
         --buttons-layout=spread --button="$FINSHTEXT3":'mx-tweak --theme' --button="${BTN_CLOSE}"
+
+        fi  
+
+
         
         if [ -f /tmp/pfr-completed ]; then
             echo "yessir" > /tmp/pfr-completed

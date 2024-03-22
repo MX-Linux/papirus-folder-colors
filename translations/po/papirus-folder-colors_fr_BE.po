@@ -201,7 +201,7 @@ msgstr ""
 #: ../scripts/papirus-folder-editsettings:254
 msgid "OOPS! Something went wrong with Papirus folder settings."
 msgstr ""
-"OOPS! Un problème s’est produit dans les paramètres du dossier Papirus."
+"OUPS! Un problème s’est produit dans les paramètres du dossier Papirus."
 
 #. TRANSLATORS button label
 #: ../scripts/papirus-folder-recolor:18 ../scripts/papirus-folder-themes:18
@@ -341,7 +341,7 @@ msgstr "Ouvrir MX-Tweak"
 #. TRANSLATORS completed window error message
 #: ../scripts/papirus-folder-recolor:613
 msgid "OOPS! Something went wrong with Papirus-folder-recolor."
-msgstr "OOPS! Un problème s’est produit avec Papirus-folder-recolor."
+msgstr "OUPS! Un problème s’est produit avec Papirus-folder-recolor."
 
 #. TRANSLATORS button label
 #: ../scripts/papirus-folder-settings:21
@@ -387,7 +387,7 @@ msgstr "Choisir un thème de dossier"
 #. TRANSLATORS completed window error message
 #: ../scripts/papirus-folder-themes:321
 msgid "OOPS! Something went wrong with Papirus-folder-themes."
-msgstr "OOPS! Un problème s’est produit avec Papirus-folder-themes."
+msgstr "OUPS! Un problème s’est produit avec Papirus-folder-themes."
 
 #. The desktop entry comment will be shown within the menu
 #: ../xdg/papirus-folder-colors.desktop.in:7

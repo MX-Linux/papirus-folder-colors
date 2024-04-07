@@ -10,8 +10,8 @@ Build-Depends: debhelper-compat (= 13)
 Package-List:
  papirus-folder-colors deb x11 optional arch=all
 Checksums-Sha1:
- 055f869d43cf47fc0f2a08c99dc56e04fcfa60ef 46740 papirus-folder-colors_24.04.01.tar.xz
+ 337520804dc3d3749e1b7e44287e889e0d9e99c9 46768 papirus-folder-colors_24.04.01.tar.xz
 Checksums-Sha256:
- b103d53748df4845e5a0d824edd45ea4b8af9f2c0ac049bf72791784f858c438 46740 papirus-folder-colors_24.04.01.tar.xz
+ 2f0fef85a129649dac82a07d93c0a42545f77fc69cf6141f4fe6559bd1924eaf 46768 papirus-folder-colors_24.04.01.tar.xz
 Files:
- 490c9f12ff7a01e94df105865fcf6477 46740 papirus-folder-colors_24.04.01.tar.xz
+ b8663766ccb73492d3bdb434e36e4a43 46768 papirus-folder-colors_24.04.01.tar.xz

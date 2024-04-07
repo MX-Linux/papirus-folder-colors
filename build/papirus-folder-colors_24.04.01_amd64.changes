@@ -15,17 +15,17 @@ Changes:
  .
    * update translations
 Checksums-Sha1:
- 9ec7769cd2c8c96a116251d559ea2612b2480db5 637 papirus-folder-colors_24.04.01.dsc
- 055f869d43cf47fc0f2a08c99dc56e04fcfa60ef 46740 papirus-folder-colors_24.04.01.tar.xz
- f5117c463886d539e6d29af53a7c34c9ce4f64ce 37348 papirus-folder-colors_24.04.01_all.deb
- 534ca8852e7516dd4ec8e7fa8197ac1f5f2c7fc7 5495 papirus-folder-colors_24.04.01_amd64.buildinfo
+ 0deef40615435fc15e582a974c56b92ff8186a7b 637 papirus-folder-colors_24.04.01.dsc
+ 337520804dc3d3749e1b7e44287e889e0d9e99c9 46768 papirus-folder-colors_24.04.01.tar.xz
+ 69ac13acf66b776231d17defbedfd64c35ca88f4 37344 papirus-folder-colors_24.04.01_all.deb
+ 5f3541177d52992e75d65fef11ce026b52f04112 5495 papirus-folder-colors_24.04.01_amd64.buildinfo
 Checksums-Sha256:
- 9afa3ab48159bb108f6f26ac28528d0f14cb0abd450ae16d00f276356645a5be 637 papirus-folder-colors_24.04.01.dsc
- b103d53748df4845e5a0d824edd45ea4b8af9f2c0ac049bf72791784f858c438 46740 papirus-folder-colors_24.04.01.tar.xz
- 5defaf9a644f8359a14aa8bde1fbfaa536cbaaf2dd6ff02dc39bc4db6ca4ce6b 37348 papirus-folder-colors_24.04.01_all.deb
- 54da5ea412751b0245f53b1c093b32dfb0ecc4b0bc976a158841c4381b015ff1 5495 papirus-folder-colors_24.04.01_amd64.buildinfo
+ 18dd0bfba707f30926cf757f9df640c1730bb1c5561bca0b2b3737eb956cd49e 637 papirus-folder-colors_24.04.01.dsc
+ 2f0fef85a129649dac82a07d93c0a42545f77fc69cf6141f4fe6559bd1924eaf 46768 papirus-folder-colors_24.04.01.tar.xz
+ 103af745d634fbf188c9437c69154b01870f83e5b313c17c10af21a8a2b42604 37344 papirus-folder-colors_24.04.01_all.deb
+ 5c9ad949b2b93e8ef996cffb7e5d476246829e13646ed8f9eb04482226ecd0ad 5495 papirus-folder-colors_24.04.01_amd64.buildinfo
 Files:
- 51b6020ce3d9d86a3b29a3c6aa4108ac 637 x11 optional papirus-folder-colors_24.04.01.dsc
- 490c9f12ff7a01e94df105865fcf6477 46740 x11 optional papirus-folder-colors_24.04.01.tar.xz
- 7db8429695b7154096cb7f040f13c444 37348 x11 optional papirus-folder-colors_24.04.01_all.deb
- a54a4d46874bd89c5e48728a333c1142 5495 x11 optional papirus-folder-colors_24.04.01_amd64.buildinfo
+ 8b59fb88eae0ce9df9b5425091410c41 637 x11 optional papirus-folder-colors_24.04.01.dsc
+ b8663766ccb73492d3bdb434e36e4a43 46768 x11 optional papirus-folder-colors_24.04.01.tar.xz
+ 8afaef846c2fc84c83937fd4633ec208 37344 x11 optional papirus-folder-colors_24.04.01_all.deb
+ 35e2178dc54ec524552e48f912574633 5495 x11 optional papirus-folder-colors_24.04.01_amd64.buildinfo

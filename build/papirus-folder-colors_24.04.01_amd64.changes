@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Sun, 07 Apr 2024 18:55:01 +0100
+Source: papirus-folder-colors
+Binary: papirus-folder-colors
+Architecture: source all
+Version: 24.04.01
+Distribution: mx
+Urgency: medium
+Maintainer: Melber <melber.mx.linux@gmail.com>
+Changed-By: Melber <melber.mx.linux@gmail.com>
+Description:
+ papirus-folder-colors - Create a papirus icon theme with different colored folders
+Changes:
+ papirus-folder-colors (24.04.01) mx; urgency=medium
+ .
+   * update translations
+Checksums-Sha1:
+ 9ec7769cd2c8c96a116251d559ea2612b2480db5 637 papirus-folder-colors_24.04.01.dsc
+ 055f869d43cf47fc0f2a08c99dc56e04fcfa60ef 46740 papirus-folder-colors_24.04.01.tar.xz
+ f5117c463886d539e6d29af53a7c34c9ce4f64ce 37348 papirus-folder-colors_24.04.01_all.deb
+ 534ca8852e7516dd4ec8e7fa8197ac1f5f2c7fc7 5495 papirus-folder-colors_24.04.01_amd64.buildinfo
+Checksums-Sha256:
+ 9afa3ab48159bb108f6f26ac28528d0f14cb0abd450ae16d00f276356645a5be 637 papirus-folder-colors_24.04.01.dsc
+ b103d53748df4845e5a0d824edd45ea4b8af9f2c0ac049bf72791784f858c438 46740 papirus-folder-colors_24.04.01.tar.xz
+ 5defaf9a644f8359a14aa8bde1fbfaa536cbaaf2dd6ff02dc39bc4db6ca4ce6b 37348 papirus-folder-colors_24.04.01_all.deb
+ 54da5ea412751b0245f53b1c093b32dfb0ecc4b0bc976a158841c4381b015ff1 5495 papirus-folder-colors_24.04.01_amd64.buildinfo
+Files:
+ 51b6020ce3d9d86a3b29a3c6aa4108ac 637 x11 optional papirus-folder-colors_24.04.01.dsc
+ 490c9f12ff7a01e94df105865fcf6477 46740 x11 optional papirus-folder-colors_24.04.01.tar.xz
+ 7db8429695b7154096cb7f040f13c444 37348 x11 optional papirus-folder-colors_24.04.01_all.deb
+ a54a4d46874bd89c5e48728a333c1142 5495 x11 optional papirus-folder-colors_24.04.01_amd64.buildinfo

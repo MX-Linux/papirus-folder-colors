@@ -1,3 +1,9 @@
+papirus-folder-colors (24.04.01) mx; urgency=medium
+
+  * update translations
+
+ -- Melber <melber.mx.linux@gmail.com>  Sun, 07 Apr 2024 18:55:01 +0100
+
 papirus-folder-colors (24.01.04) mx; urgency=medium
 
   * fix for repeated entry of empty theme name

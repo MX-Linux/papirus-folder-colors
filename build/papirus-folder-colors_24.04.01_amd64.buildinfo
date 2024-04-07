@@ -2,19 +2,19 @@ Format: 1.0
 Source: papirus-folder-colors
 Binary: papirus-folder-colors
 Architecture: all source
-Version: 24.01.04
+Version: 24.04.01
 Checksums-Md5:
- 7dbe06deb541b60ede9ba311808359d3 637 papirus-folder-colors_24.01.04.dsc
- 0852b9a9a187807f9e7345e5903425d0 36672 papirus-folder-colors_24.01.04_all.deb
+ 51b6020ce3d9d86a3b29a3c6aa4108ac 637 papirus-folder-colors_24.04.01.dsc
+ 7db8429695b7154096cb7f040f13c444 37348 papirus-folder-colors_24.04.01_all.deb
 Checksums-Sha1:
- 8bebbf3e76aca73d968ec8f4995968536b5c8041 637 papirus-folder-colors_24.01.04.dsc
- 938b549be2d316761530cb066c7c67c44bb7d16b 36672 papirus-folder-colors_24.01.04_all.deb
+ 9ec7769cd2c8c96a116251d559ea2612b2480db5 637 papirus-folder-colors_24.04.01.dsc
+ f5117c463886d539e6d29af53a7c34c9ce4f64ce 37348 papirus-folder-colors_24.04.01_all.deb
 Checksums-Sha256:
- 52cbb6026253770a0138bee5e900917d7d44633b7e1fb00177eb6f947cc02e07 637 papirus-folder-colors_24.01.04.dsc
- 1e3ad4b2dccaf44f3eecaffbc88fdb1f082a02aa81d4a65c3a306eedc1f3a662 36672 papirus-folder-colors_24.01.04_all.deb
+ 9afa3ab48159bb108f6f26ac28528d0f14cb0abd450ae16d00f276356645a5be 637 papirus-folder-colors_24.04.01.dsc
+ 5defaf9a644f8359a14aa8bde1fbfaa536cbaaf2dd6ff02dc39bc4db6ca4ce6b 37348 papirus-folder-colors_24.04.01_all.deb
 Build-Origin: Debian
 Build-Architecture: amd64
-Build-Date: Mon, 29 Jan 2024 22:38:05 +0100
+Build-Date: Sun, 07 Apr 2024 19:01:33 +0200
 Build-Tainted-By:
  merged-usr-via-aliased-dirs
  usr-local-has-libraries
@@ -24,15 +24,15 @@ Installed-Build-Depends:
  automake (= 1:1.16.5-1.3),
  autopoint (= 0.21-12),
  autotools-dev (= 20220109.1),
- base-files (= 12.4+deb12u4),
+ base-files (= 12.4+deb12u5),
  base-passwd (= 3.6.1),
  bash (= 5.2.15-2+b2),
  binutils (= 2.40-2),
  binutils-common (= 2.40-2),
  binutils-x86-64-linux-gnu (= 2.40-2),
- bsdextrautils (= 2.38.1-5+b1),
+ bsdextrautils (= 2.38.1-5+deb12u1),
  bsdmainutils (= 12.1.8),
- bsdutils (= 1:2.38.1-5+b1),
+ bsdutils (= 1:2.38.1-5+deb12u1),
  build-essential (= 12.9),
  bzip2 (= 1.0.8-5+b1),
  coreutils (= 9.1-1),
@@ -73,12 +73,12 @@ Installed-Build-Depends:
  libaudit-common (= 1:3.0.9-1),
  libaudit1 (= 1:3.0.9-1),
  libbinutils (= 2.40-2),
- libblkid1 (= 2.38.1-5+b1),
+ libblkid1 (= 2.38.1-5+deb12u1),
  libbz2-1.0 (= 1.0.8-5+b1),
- libc-bin (= 2.36-9+deb12u3),
- libc-dev-bin (= 2.36-9+deb12u3),
- libc6 (= 2.36-9+deb12u3),
- libc6-dev (= 2.36-9+deb12u3),
+ libc-bin (= 2.36-9+deb12u4),
+ libc-dev-bin (= 2.36-9+deb12u4),
+ libc6 (= 2.36-9+deb12u4),
+ libc6-dev (= 2.36-9+deb12u4),
  libcap-ng0 (= 0.8.3-1+b3),
  libcap2 (= 1:2.66-4),
  libcc1-0 (= 12.2.0-14),
@@ -105,7 +105,7 @@ Installed-Build-Depends:
  libgprofng0 (= 2.40-2),
  libgssapi-krb5-2 (= 1.20.1-2+deb12u1),
  libicu72 (= 72.1-3),
- libisl23 (= 0.25-1),
+ libisl23 (= 0.25-1.1),
  libitm1 (= 12.2.0-14),
  libjansson4 (= 2.14-2),
  libk5crypto3 (= 1.20.1-2+deb12u1),
@@ -118,7 +118,7 @@ Installed-Build-Depends:
  libmagic-mgc (= 1:5.44-3),
  libmagic1 (= 1:5.44-3),
  libmd0 (= 1.0.4-2),
- libmount1 (= 2.38.1-5+b1),
+ libmount1 (= 2.38.1-5+deb12u1),
  libmpc3 (= 1.3.1-1),
  libmpfr6 (= 4.2.0-1),
  libnsl-dev (= 1.3.0-2),
@@ -136,7 +136,7 @@ Installed-Build-Depends:
  libseccomp2 (= 2.5.4-1+b3),
  libselinux1 (= 3.4-1+b6),
  libsigsegv2 (= 2.14-1),
- libsmartcols1 (= 2.38.1-5+b1),
+ libsmartcols1 (= 2.38.1-5+deb12u1),
  libssl3 (= 3.0.11-1~deb12u2),
  libstdc++-12-dev (= 12.2.0-14),
  libstdc++6 (= 12.2.0-14),
@@ -153,10 +153,10 @@ Installed-Build-Depends:
  libuchardet0 (= 0.0.7-1),
  libudev1 (= 1:252.6-1mx23+1),
  libunistring2 (= 1.0-2),
- libuuid1 (= 2.38.1-5+b1),
+ libuuid1 (= 2.38.1-5+deb12u1),
  libxml2 (= 2.9.14+dfsg-1.3~deb12u1),
  libzstd1 (= 1.5.4+dfsg2-5),
- linux-libc-dev (= 6.1.69-1),
+ linux-libc-dev (= 6.1.76-1),
  login (= 1:4.13+dfsg1-1+b1),
  m4 (= 1.4.19-3),
  make (= 4.3-4.1),
@@ -175,14 +175,14 @@ Installed-Build-Depends:
  sed (= 4.9-1),
  sensible-utils (= 0.0.17+nmu1),
  sysvinit-utils (= 3.06-4),
- tar (= 1.34+dfsg-1.2),
- usr-is-merged (= 35),
- usrmerge (= 35),
- util-linux (= 2.38.1-5+b1),
- util-linux-extra (= 2.38.1-5+b1),
+ tar (= 1.34+dfsg-1.2+deb12u1),
+ usr-is-merged (= 37~deb12u1),
+ usrmerge (= 37~deb12u1),
+ util-linux (= 2.38.1-5+deb12u1),
+ util-linux-extra (= 2.38.1-5+deb12u1),
  xz-utils (= 5.4.1-0.2),
  zlib1g (= 1:1.2.13.dfsg-1)
 Environment:
  DEB_BUILD_OPTIONS="parallel=4"
  LANG="de_DE.UTF-8"
- SOURCE_DATE_EPOCH="1706564161"
+ SOURCE_DATE_EPOCH="1712512501"

@@ -1,0 +1,52 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Fri, 06 Sep 2024 18:27:02 -0400
+Source: papirus-folder-colors
+Binary: papirus-folder-colors
+Architecture: source all
+Version: 24.09.01
+Distribution: mx
+Urgency: medium
+Maintainer: Melber <melber.mx.linux@gmail.com>
+Changed-By: Dolphin Oracle <dolphinoracle@gmail.com>
+Description:
+ papirus-folder-colors - Create a papirus icon theme with different colored folders
+Changes:
+ papirus-folder-colors (24.09.01) mx; urgency=medium
+ .
+   * update translations
+   * include icon in hicolor theme (xfce4-settings-manager display issue)
+Checksums-Sha1:
+ 422b420335fd29520fcd409c6e17b9c72e98680f 1523 papirus-folder-colors_24.09.01.dsc
+ cdd3f8eff84e310b00c583a04b7b767c29ce9ebe 167636 papirus-folder-colors_24.09.01.tar.xz
+ ea5ea7ead2b5558185d14a74f2862bf082095c79 38740 papirus-folder-colors_24.09.01_all.deb
+ ff7f689b84ded4649142012712e896952e2e7758 6274 papirus-folder-colors_24.09.01_amd64.buildinfo
+Checksums-Sha256:
+ b393bf725232d6cacc8657ba30bcdb1462aaf8967b1414b36fe408f59a48997a 1523 papirus-folder-colors_24.09.01.dsc
+ 97074f955fa63060cb9c348ff48cb925c7988ffaeffdeef1b7de8c90d22cba8c 167636 papirus-folder-colors_24.09.01.tar.xz
+ 4b6c625d446100e9e4b1eef97236ef16859a0554ecf2b5d51eec00c6368d1bca 38740 papirus-folder-colors_24.09.01_all.deb
+ 1077bdc3fd796c0199cb4bb101964a461e0d9d3ee2b8f749d5b7da8fd9e359cb 6274 papirus-folder-colors_24.09.01_amd64.buildinfo
+Files:
+ 03d9007c742f46b22fa92190dc4911cc 1523 x11 optional papirus-folder-colors_24.09.01.dsc
+ d6c4fe7eafb26d03e1627293ef729986 167636 x11 optional papirus-folder-colors_24.09.01.tar.xz
+ 922939c937aca3ca89eafd038837ac01 38740 x11 optional papirus-folder-colors_24.09.01_all.deb
+ b7b42527741aa3a4544a50aa825354c2 6274 x11 optional papirus-folder-colors_24.09.01_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmbbgwAACgkQm2ih6Lm2
+N1xc7hAAvMm//QQqtO1fcUTymkgpWGDYrZsFktWYOPcWq2caBMddHWaBYgoP/iTJ
+LTHK8ct6TNEB6z2Yw9dkM3AaRDzxGCDtOOYpT8bJj6bT4wrSqG+1kK4U3c8CsAZy
+8vipofWwRh37giWeAFDtTDygbT5rmVc8eVAemCMFdJqzKcIcxNQvFkyzR3K2AKDL
+cH4zAPheT3c0vH2A46cbN/9j/DKYj3owfflx4Hu+9Sw20BwLEhELrMUZ+pC2LUVo
+d3pL6LH/KMC6FP4wSWialWgBKE6ShKuNs6YMQYSUnPqEHhQCD5b+kUt9S+k0jU7X
+MSUEzHHYWcsk3Mreg56hmctOETWAEQ7LKvwZhEnS7TjY2ZaGexnUgRIfLRGDbLU0
+TVHNRKubLTlpYGgSv7RfX15mEnM0In69Q/2/CW5zVw/8af6laYJ9eKUbr6LfTXXU
+j4yUVToFWrTR88uWQlCb9wUIaqrYcGLLhrCfAKqigUfFAEd+jrch30Q/JLXUbJ95
+PyGOJZCiWt0ZKKkRrG+/I5Cjo14U1R7GQW0/4vy2ruZ6TY/u6SQzrzph8bJjdNlj
+9DoZSf/UE6naAuiGNvh8ir8KOkJ+PK58i57uh4GgorcLXcbnEid0qprQ2Ywvl8J4
+4IqMStyzhCsiTK2+3fPbwC5djTk++4IHFtQWg+bj4EbTMyrT/00=
+=1/ds
+-----END PGP SIGNATURE-----

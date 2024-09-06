@@ -5,19 +5,19 @@ Format: 1.0
 Source: papirus-folder-colors
 Binary: papirus-folder-colors
 Architecture: all source
-Version: 24.04.01
+Version: 24.09.01
 Checksums-Md5:
- 88e9116f5ad836be9880296fe3345430 1520 papirus-folder-colors_24.04.01.dsc
- 1eda32a24e88f674f9993121cda7297b 38628 papirus-folder-colors_24.04.01_all.deb
+ 03d9007c742f46b22fa92190dc4911cc 1523 papirus-folder-colors_24.09.01.dsc
+ 922939c937aca3ca89eafd038837ac01 38740 papirus-folder-colors_24.09.01_all.deb
 Checksums-Sha1:
- bb8d29d4d8be0cd9eedef8ad6a9ac1f9738e8114 1520 papirus-folder-colors_24.04.01.dsc
- 2ac275593922ce84797b85e9e23a241780039f10 38628 papirus-folder-colors_24.04.01_all.deb
+ 422b420335fd29520fcd409c6e17b9c72e98680f 1523 papirus-folder-colors_24.09.01.dsc
+ ea5ea7ead2b5558185d14a74f2862bf082095c79 38740 papirus-folder-colors_24.09.01_all.deb
 Checksums-Sha256:
- 8869dd931bbba075e37465cf6fdb6849c14ac71f6051abbf1db383673593f4f6 1520 papirus-folder-colors_24.04.01.dsc
- 31be61ffb0a0f4be7b783349cb93fe556980533691b62b0bf784e6025065d3b0 38628 papirus-folder-colors_24.04.01_all.deb
+ b393bf725232d6cacc8657ba30bcdb1462aaf8967b1414b36fe408f59a48997a 1523 papirus-folder-colors_24.09.01.dsc
+ 4b6c625d446100e9e4b1eef97236ef16859a0554ecf2b5d51eec00c6368d1bca 38740 papirus-folder-colors_24.09.01_all.deb
 Build-Origin: Debian
 Build-Architecture: amd64
-Build-Date: Fri, 06 Sep 2024 18:22:50 -0400
+Build-Date: Fri, 06 Sep 2024 18:32:28 -0400
 Build-Tainted-By:
  merged-usr-via-aliased-dirs
  usr-local-has-libraries
@@ -184,21 +184,21 @@ Installed-Build-Depends:
 Environment:
  DEB_BUILD_OPTIONS="parallel=16"
  LANG="en_US.UTF-8"
- SOURCE_DATE_EPOCH="1712512501"
+ SOURCE_DATE_EPOCH="1725661622"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmbbgMEACgkQm2ih6Lm2
-N1zxSw//X//OuHzWw8QpvDf/hWGR7Vtc1sQvcOciw8JQJ3yuXcBWhfUdLdp7Z/MJ
-tKs8exWLJxoCGA+JloyERzx981DY40JjCyvfDaGlxxZRj7mzZWhC0xQPRMQdZeTD
-l9bI1TGBxe73um2FS+7USyMu4yXnS8S0yf0J2IowmZ4X72Ds+Ku0k6TE0yN0CQjz
-MITXSwOXd73AeCLbP4Gp0/jz03hSvIkv+5tpq0b4oQCduKDHrg1Ldlvlem11370q
-9IJ2kZ6LJv7ITCKNYRwVyU6q0FcS0IE3Z3ZbzXfbpZRU0Jrrjjc8m/P3+OuNS8s4
-vgCQS65IQ64+6r/QKUDfeR0HuZ8nPqccyzdg+PtVOTuQOXWEYUG7JX2x02z+jHyt
-65EwaEVPOHOjoBUDrXKZBXRvN6cs9h5VF07RvCh25aTrUZ/EQtaV8KmQCjHQRdJM
-YrxAlyMA/WbjQWjKtvhwu2d4q6v0cUWh+pYYrC7ugq1OrUrXjd0OSaZ1N8e1//MT
-Li/vdMm7gAvhN0IbJVq71K2V15b2UkNvshQ9cfAjsaTI129W9ka9nZf0k0kGqKIT
-jc4mpuP3OAa0DPkvpiEEseflcmctbpqj2obkm28eBJXNbUGGovNTnY+Tv3sEKp2h
-9IbcSBZf1TXNfFZUhs4RCbq/x/MG/O1AgoHhA5cjx1HHYN9JtAU=
-=IHwz
+iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmbbgwAACgkQm2ih6Lm2
+N1x+UA/9GA1sNvU1Y+N99RztURGUhGw1NEdJUlCdqltVKA2qBKhBELTUYb5/nHaN
+X+emC1pBanOCYjjt3dqhsbib0G4v+4Mr7SaKIV9vNMpdf7A8yOX07rm+5oGc8UkZ
+YBXGOiGolgCW/pSOuYESiljjfUNwstM211o8CG/RrjuTnWTfV64h16D7uHQkZzWR
+5yEEhKF7WY5ZD8aWVhKP4LJXW9u/Dchrkhh+ckSCcNChw6YbEj5Zjbjf/YVsgKTe
+wQmBkpeIAR7WtCxUgWAgNo7MDCHDd+nI7RzsVrj/H6gWw3Iz8K7kjI0UYZ7SqD5D
+p9MpBB4zE/yZBbS+5U/ci+9veTEtnPf5iI9sr3Rdrnggl+M/pyE+JL2mB3bbDYRT
+7aFF0A7Egox5Xy4i16bIQmoLJgA1BAH+2UYjspoPChw41AId4pfvdkFoFiN3iYKc
+r72KCGznOJ14kIFOCO9WUL0u4B6NWdL0D8VbQAwONQkTdkqa+EDgqZDPp8Q5WY6z
+Pi/ikQMkuGpru3kUxg7ETaYPG9lmQK7cNiyZgZeJaHN0hMWq9WlHWe5ueJ9iJEiY
+6VIo8Br2rUmAz7rhk+RYoOPg0TjJxMMbDqjwEeA6wizZu0cg1rJgCQbFIn9Jz/Uf
+I4YSg7BZ7sNZgblAxFw3WhcVjGd097cJDJrlozHqzKYi34GocWA=
+=HWJ1
 -----END PGP SIGNATURE-----

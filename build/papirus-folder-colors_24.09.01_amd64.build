@@ -1,8 +1,8 @@
  dpkg-buildpackage -us -uc -ui
 dpkg-buildpackage: info: source package papirus-folder-colors
-dpkg-buildpackage: info: source version 24.04.01
+dpkg-buildpackage: info: source version 24.09.01
 dpkg-buildpackage: info: source distribution mx
-dpkg-buildpackage: info: source changed by Melber <melber.mx.linux@gmail.com>
+dpkg-buildpackage: info: source changed by Dolphin Oracle <dolphinoracle@gmail.com>
  dpkg-source --before-build .
 dpkg-buildpackage: info: host architecture amd64
  debian/rules clean
@@ -10,8 +10,8 @@ dh clean
    dh_clean
  dpkg-source -b .
 dpkg-source: info: using source format '3.0 (native)'
-dpkg-source: info: building papirus-folder-colors in papirus-folder-colors_24.04.01.tar.xz
-dpkg-source: info: building papirus-folder-colors in papirus-folder-colors_24.04.01.dsc
+dpkg-source: info: building papirus-folder-colors in papirus-folder-colors_24.09.01.tar.xz
+dpkg-source: info: building papirus-folder-colors in papirus-folder-colors_24.09.01.dsc
  debian/rules binary
 dh binary
    dh_update_autotools_config
@@ -26,27 +26,27 @@ dh binary
    dh_perl
    dh_link
    dh_strip_nondeterminism
+	Normalized debian/papirus-folder-colors/usr/share/locale/pt/LC_MESSAGES/papirus-folder-colors.mo
+	Normalized debian/papirus-folder-colors/usr/share/locale/ru_RU/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/pt_BR/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/hu/LC_MESSAGES/papirus-folder-colors.mo
-	Normalized debian/papirus-folder-colors/usr/share/locale/fr_BE/LC_MESSAGES/papirus-folder-colors.mo
-	Normalized debian/papirus-folder-colors/usr/share/locale/fi/LC_MESSAGES/papirus-folder-colors.mo
-	Normalized debian/papirus-folder-colors/usr/share/locale/ca/LC_MESSAGES/papirus-folder-colors.mo
-	Normalized debian/papirus-folder-colors/usr/share/locale/es_ES/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/de/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/sv/LC_MESSAGES/papirus-folder-colors.mo
+	Normalized debian/papirus-folder-colors/usr/share/locale/ca/LC_MESSAGES/papirus-folder-colors.mo
+	Normalized debian/papirus-folder-colors/usr/share/locale/es_ES/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/sl/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/ja/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/it/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/nb/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/es/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/tr/LC_MESSAGES/papirus-folder-colors.mo
-	Normalized debian/papirus-folder-colors/usr/share/locale/pt/LC_MESSAGES/papirus-folder-colors.mo
-	Normalized debian/papirus-folder-colors/usr/share/locale/ru_RU/LC_MESSAGES/papirus-folder-colors.mo
-	Normalized debian/papirus-folder-colors/usr/share/locale/fr/LC_MESSAGES/papirus-folder-colors.mo
-	Normalized debian/papirus-folder-colors/usr/share/locale/sq/LC_MESSAGES/papirus-folder-colors.mo
+	Normalized debian/papirus-folder-colors/usr/share/locale/fr_BE/LC_MESSAGES/papirus-folder-colors.mo
+	Normalized debian/papirus-folder-colors/usr/share/locale/fi/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/el/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/gl_ES/LC_MESSAGES/papirus-folder-colors.mo
 	Normalized debian/papirus-folder-colors/usr/share/locale/nl/LC_MESSAGES/papirus-folder-colors.mo
+	Normalized debian/papirus-folder-colors/usr/share/locale/fr/LC_MESSAGES/papirus-folder-colors.mo
+	Normalized debian/papirus-folder-colors/usr/share/locale/sq/LC_MESSAGES/papirus-folder-colors.mo
    dh_compress
    dh_fixperms
    dh_missing
@@ -54,9 +54,9 @@ dh binary
    dh_gencontrol
    dh_md5sums
    dh_builddeb
-dpkg-deb: building package 'papirus-folder-colors' in '../papirus-folder-colors_24.04.01_all.deb'.
- dpkg-genbuildinfo -O../papirus-folder-colors_24.04.01_amd64.buildinfo
- dpkg-genchanges -O../papirus-folder-colors_24.04.01_amd64.changes
+dpkg-deb: building package 'papirus-folder-colors' in '../papirus-folder-colors_24.09.01_all.deb'.
+ dpkg-genbuildinfo -O../papirus-folder-colors_24.09.01_amd64.buildinfo
+ dpkg-genchanges -O../papirus-folder-colors_24.09.01_amd64.changes
 dpkg-genchanges: info: including full source code in upload
  dpkg-source --after-build .
 dpkg-buildpackage: info: full upload; Debian-native package (full source is included)

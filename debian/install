@@ -1,4 +1,5 @@
 scripts/* usr/bin
 pixmaps/* usr/share/pixmaps
+pixmaps/papirus-folder-colors-96.svg usr/share/icons/hicolor/scalable/apps
 *.desktop usr/share/applications
 translations/mo/* /

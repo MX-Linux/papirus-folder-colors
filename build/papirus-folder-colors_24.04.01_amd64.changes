@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 Format: 1.8
 Date: Sun, 07 Apr 2024 18:55:01 +0100
 Source: papirus-folder-colors
@@ -15,17 +18,34 @@ Changes:
  .
    * update translations
 Checksums-Sha1:
- 0deef40615435fc15e582a974c56b92ff8186a7b 637 papirus-folder-colors_24.04.01.dsc
- 337520804dc3d3749e1b7e44287e889e0d9e99c9 46768 papirus-folder-colors_24.04.01.tar.xz
- 69ac13acf66b776231d17defbedfd64c35ca88f4 37344 papirus-folder-colors_24.04.01_all.deb
- 5f3541177d52992e75d65fef11ce026b52f04112 5495 papirus-folder-colors_24.04.01_amd64.buildinfo
+ bb8d29d4d8be0cd9eedef8ad6a9ac1f9738e8114 1520 papirus-folder-colors_24.04.01.dsc
+ 4dfe07278332f3e50150abc764c27cb2aa97e6a8 61364 papirus-folder-colors_24.04.01.tar.xz
+ 2ac275593922ce84797b85e9e23a241780039f10 38628 papirus-folder-colors_24.04.01_all.deb
+ 13c1fac062e29e123ed1dacdfac221dc445f8541 6274 papirus-folder-colors_24.04.01_amd64.buildinfo
 Checksums-Sha256:
- 18dd0bfba707f30926cf757f9df640c1730bb1c5561bca0b2b3737eb956cd49e 637 papirus-folder-colors_24.04.01.dsc
- 2f0fef85a129649dac82a07d93c0a42545f77fc69cf6141f4fe6559bd1924eaf 46768 papirus-folder-colors_24.04.01.tar.xz
- 103af745d634fbf188c9437c69154b01870f83e5b313c17c10af21a8a2b42604 37344 papirus-folder-colors_24.04.01_all.deb
- 5c9ad949b2b93e8ef996cffb7e5d476246829e13646ed8f9eb04482226ecd0ad 5495 papirus-folder-colors_24.04.01_amd64.buildinfo
+ 8869dd931bbba075e37465cf6fdb6849c14ac71f6051abbf1db383673593f4f6 1520 papirus-folder-colors_24.04.01.dsc
+ 1f1eacae74461f64e3f53d69e7441c2217f70667ef17678f52a4590664cf5c22 61364 papirus-folder-colors_24.04.01.tar.xz
+ 31be61ffb0a0f4be7b783349cb93fe556980533691b62b0bf784e6025065d3b0 38628 papirus-folder-colors_24.04.01_all.deb
+ 13aa4c1f333044040f3e116329c93e748820596e4882471eb45e754252e0e805 6274 papirus-folder-colors_24.04.01_amd64.buildinfo
 Files:
- 8b59fb88eae0ce9df9b5425091410c41 637 x11 optional papirus-folder-colors_24.04.01.dsc
- b8663766ccb73492d3bdb434e36e4a43 46768 x11 optional papirus-folder-colors_24.04.01.tar.xz
- 8afaef846c2fc84c83937fd4633ec208 37344 x11 optional papirus-folder-colors_24.04.01_all.deb
- 35e2178dc54ec524552e48f912574633 5495 x11 optional papirus-folder-colors_24.04.01_amd64.buildinfo
+ 88e9116f5ad836be9880296fe3345430 1520 x11 optional papirus-folder-colors_24.04.01.dsc
+ cd7b25e83e5bb6086c881a7eb4b0ff2f 61364 x11 optional papirus-folder-colors_24.04.01.tar.xz
+ 1eda32a24e88f674f9993121cda7297b 38628 x11 optional papirus-folder-colors_24.04.01_all.deb
+ 1b2c8d5cec3e6640fca0ebd87280af2b 6274 x11 optional papirus-folder-colors_24.04.01_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmbbgMEACgkQm2ih6Lm2
+N1ygaw/6AmFqdL9clvjEva4l5MW8LmtgbmR6oYjq4d9tNFFDhlGdvteq4m0sHp8u
+D0bhNosELKTKejbxypmVG1wdpmUFCl6CpXYq2YnotOMmGHiRncJB/fiH/HQZ+Ojn
+EI8JjWQrQU1K2bUdxNfGV/oWUuO72y7zOBp0TAbKaDS/xUlBoSJtW4DzwIQm3G1N
+kbLq4dDCtq8kq5PJ8QHSacXs8iBzmLFX+R0arpa+7s+ubXA1wX2Xs+heUZSNQydN
+EI52iLtuSwMq+O9/QMXBUnHScUNYGynrOrH8s2T641+XEW8fVdHgwskg9mQmM/KK
+tNjr2x1l2KlXHi9yE6YyO7hxG/85/lQ357B5xahlbaiCfvvVWdKhjAquV/eR1lGI
+SRLcsfzJRsGkeb4FfV9DbtBYiUWIhNcKOWqTCb0Zf2TO3SqCEBAI2ijClf/YmN+L
+kf8N8RZGgJlWRkvIla6x7vJX1cEXPEImW39YMja4klx1XOObTwe0l7Z9Prh3lQc3
+RwobJ8uGoZPeQNMcS8tb8gAAIvJVmLRJxa71seoWmzBNVkKXrOwEVnjBAjj0/fW4
+dSll8iw4mlAC1C+e7Bii399VuCry+bNfJ/UJg2ChDrZ2N2zPXDOax0PHTsXLKcO0
+k/WWvb14nNnh7vMahOnyNMcuv0WG+viYtKYWzIkL49Of/Yx7rQc=
+=e464
+-----END PGP SIGNATURE-----

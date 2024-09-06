@@ -1,3 +1,10 @@
+papirus-folder-colors (24.09.01) mx; urgency=medium
+
+  * update translations
+  * include icon in hicolor theme (xfce4-settings-manager display issue)
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Fri, 06 Sep 2024 18:27:02 -0400
+
 papirus-folder-colors (24.04.01) mx; urgency=medium
 
   * update translations

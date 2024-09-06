@@ -7,17 +7,17 @@ Binary: papirus-folder-colors
 Architecture: all source
 Version: 24.09.01
 Checksums-Md5:
- 03d9007c742f46b22fa92190dc4911cc 1523 papirus-folder-colors_24.09.01.dsc
+ b02bcd1a80b53231962a6cd24aac3292 1520 papirus-folder-colors_24.09.01.dsc
  922939c937aca3ca89eafd038837ac01 38740 papirus-folder-colors_24.09.01_all.deb
 Checksums-Sha1:
- 422b420335fd29520fcd409c6e17b9c72e98680f 1523 papirus-folder-colors_24.09.01.dsc
+ 12824ce77127f7fc41d837d2b1b364dcd9fe36a9 1520 papirus-folder-colors_24.09.01.dsc
  ea5ea7ead2b5558185d14a74f2862bf082095c79 38740 papirus-folder-colors_24.09.01_all.deb
 Checksums-Sha256:
- b393bf725232d6cacc8657ba30bcdb1462aaf8967b1414b36fe408f59a48997a 1523 papirus-folder-colors_24.09.01.dsc
+ 7d1b2fc1af086f201116a42a6ebd7a1c53bb7395cfcd0ef6bcbdc0d98a2c90dc 1520 papirus-folder-colors_24.09.01.dsc
  4b6c625d446100e9e4b1eef97236ef16859a0554ecf2b5d51eec00c6368d1bca 38740 papirus-folder-colors_24.09.01_all.deb
 Build-Origin: Debian
 Build-Architecture: amd64
-Build-Date: Fri, 06 Sep 2024 18:32:28 -0400
+Build-Date: Fri, 06 Sep 2024 18:35:01 -0400
 Build-Tainted-By:
  merged-usr-via-aliased-dirs
  usr-local-has-libraries
@@ -188,17 +188,17 @@ Environment:
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmbbgwAACgkQm2ih6Lm2
-N1x+UA/9GA1sNvU1Y+N99RztURGUhGw1NEdJUlCdqltVKA2qBKhBELTUYb5/nHaN
-X+emC1pBanOCYjjt3dqhsbib0G4v+4Mr7SaKIV9vNMpdf7A8yOX07rm+5oGc8UkZ
-YBXGOiGolgCW/pSOuYESiljjfUNwstM211o8CG/RrjuTnWTfV64h16D7uHQkZzWR
-5yEEhKF7WY5ZD8aWVhKP4LJXW9u/Dchrkhh+ckSCcNChw6YbEj5Zjbjf/YVsgKTe
-wQmBkpeIAR7WtCxUgWAgNo7MDCHDd+nI7RzsVrj/H6gWw3Iz8K7kjI0UYZ7SqD5D
-p9MpBB4zE/yZBbS+5U/ci+9veTEtnPf5iI9sr3Rdrnggl+M/pyE+JL2mB3bbDYRT
-7aFF0A7Egox5Xy4i16bIQmoLJgA1BAH+2UYjspoPChw41AId4pfvdkFoFiN3iYKc
-r72KCGznOJ14kIFOCO9WUL0u4B6NWdL0D8VbQAwONQkTdkqa+EDgqZDPp8Q5WY6z
-Pi/ikQMkuGpru3kUxg7ETaYPG9lmQK7cNiyZgZeJaHN0hMWq9WlHWe5ueJ9iJEiY
-6VIo8Br2rUmAz7rhk+RYoOPg0TjJxMMbDqjwEeA6wizZu0cg1rJgCQbFIn9Jz/Uf
-I4YSg7BZ7sNZgblAxFw3WhcVjGd097cJDJrlozHqzKYi34GocWA=
-=HWJ1
+iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmbbg5YACgkQm2ih6Lm2
+N1yofg//eww1Z0yhULznWjU+2FPx6n4BiOxfbwRZbDSLRtODqnlqJaScgumqsojK
+ENOb6wGGiHloixQCZTwwlnGbn/I7XyPC5d/KPHiyhZDpeiDVmNvUu8peBwYtzJRI
+AhZN1K0gzdFHCHYjVArQ9NHHCJV01udzS7YKNfIWjiOsF5DoMzgaARRQ0qQ3+z8K
+0hn4g+3nEJ5gPosu3iUnec+PsrF5K5clzpCC4eOTyCUPfsYXDRT59s3dELpD7pzx
+JKRXi/vw6sFjADjf62a4WYo/QIPAUTs/JP8/ZQMOJfQQGth8Vai1bSSZA/udB8gC
+6CQLX35an2Lxxcs/0oP7zMhKA1g0xXBKNL16GDsNMR02ptuaP9ksFgOtwNVoOact
+Gkr2vFukrphkWo7gYT6jnfA7Zdw//iL0TAqd3iQzk3Do46HJgFM4X5ZgpXnMB/Mo
+0HsOg8wOWNed7j7PHGY/UtSPWiwuOn4irbpbFA1D4W5JZHI4LQVbpHj9PYhnfUHn
+VfQmOjrn2AMdSrKfiPeavuWfgAMwhMZaufheA00TtIMKGtsmJVYtIRYIpPz/QLW8
+pGdujuXmjFEnBGpdMM5hNjehzIvimQJ9LI6sib2bunh/Sq0IDplkxBawLqYgTWfK
+22++O6yGn52c+7vEAYPGWjUwGBFiV9JoKlyfloMZYB9S/9to+i0=
+=7iSJ
 -----END PGP SIGNATURE-----

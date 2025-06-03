@@ -219,12 +219,13 @@ if [ "$N" != "0" ]; then
     fi
 fi
 
-source $TEMP_COLORFILE
-
-if [ "$iconswitch" = "classic" ]; then
-    echo "$TEMPLATE_ICON_CLASSIC"
-elif [ "$iconswitch" = "standard" ]; then
-    echo "$TEMPLATE_ICON"
+if [ "$N" != "0" ]; then
+    source $TEMP_COLORFILE
+    if [ "$iconswitch" = "classic" ]; then
+        echo "$TEMPLATE_ICON_CLASSIC"
+    elif [ "$iconswitch" = "standard" ]; then
+        echo "$TEMPLATE_ICON"
+    fi
 fi
 
 }

@@ -2,7 +2,7 @@
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-recolor
-### Version=24.01.04
+### Version=25.06.01
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
@@ -271,7 +271,7 @@ yad --plug=$rkey --tabnum=1 \
 TEXT1="$(gettext 'Select colors for new folder theme')"
 
 yad --paned --key=$rkey \
---orient=Vertical --splitter=96 \
+--orient=Vertical --splitter=84 \
 --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" \
 --borders=10 --center --width=400 --height=550 --buttons-layout=spread \
 --text="\n<b>$TEXT1</b>\n" --text-align=center \

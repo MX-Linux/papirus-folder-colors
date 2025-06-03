@@ -1,4 +1,12 @@
-papirus-folder-colors (24.09.01) mx; urgency=medium
+papirus-folder-colors (25.06.01) mx; urgency=medium
+
+  * add mxblue inherits
+  * add icon for recent
+  * fix recolor preview icons
+
+ -- Melber <melber.mx.linux@gmail.com>  Tue, 03 Jun 2025 23:55:01 +0100
+ 
+ papirus-folder-colors (24.09.01) mx; urgency=medium
 
   * update translations
   * include icon in hicolor theme (xfce4-settings-manager display issue)

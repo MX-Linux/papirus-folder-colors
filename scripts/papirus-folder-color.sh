@@ -6,7 +6,7 @@
 #    Copyright: 2019-2022 John Crawley <john@bunsenlabs.org>
 #
 #    Modified and expanded for MX-Linux papirus-folder-colors
-#    Version=24.01.01
+#    Version=25.06.01
 #    Copyright: 2023 Melber <melber.mx.linux@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify

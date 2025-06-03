@@ -242,9 +242,11 @@ done
 
 if [[ $dark_theme = true ]]
 then
-    inherit="Papirus-Dark,breeze-dark"
+    inherit="Papirus-mxbluedark,Papirus-Dark,breeze-dark"
+    cp "$source_dir-Dark/24x24/actions/document-open-recent.svg" "$target_dir/24x24/places/document-open-recent.svg"
 else
-    inherit="Papirus,breeze"
+    inherit="Papirus-mxblue,Papirus,breeze"
+    cp "$source_dir/24x24/actions/document-open-recent.svg" "$target_dir/24x24/places/document-open-recent.svg"
 fi
 
 #mx-edit

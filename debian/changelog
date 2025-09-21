@@ -1,3 +1,9 @@
+papirus-folder-colors (25.09.01) mx; urgency=medium
+
+  * yad 14 icon fixes
+
+ -- Melber <melber.mx.linux@gmail.com>  Tue, 21 Sep 2025 22:01:01 +0100
+
 papirus-folder-colors (25.06.01) mx; urgency=medium
 
   * add mxblue inherits

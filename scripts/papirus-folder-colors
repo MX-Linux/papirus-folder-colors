@@ -2,7 +2,7 @@
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-colors
-VERSION=25.09.01
+VERSION=26.02.01
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"

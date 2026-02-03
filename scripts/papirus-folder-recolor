@@ -2,7 +2,7 @@
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-recolor
-### Version=25.09.01
+### Version=26.02.01
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
@@ -554,8 +554,12 @@ echo "# $((waittime))%"
 
     if [ "$TARGET_NEW" = "$HOME/.local/share/icons" -o "$TARGET_NEW" = "$HOME/.icons" ]; then
 
+        if [ "$TARGET_NEW" = "$HOME/.local/share/icons" ] && [ ! -d "$TARGET_NEW" ]; then
+            mkdir -p "$TARGET_NEW"
+        fi
+
         if [ "$ICONSWITCH" = "classic" ]; then
-            cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME
+            cp -r /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME
             sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME$DARKNAME/index.theme
             papirus-folder-editcolors
 

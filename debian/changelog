@@ -1,3 +1,9 @@
+papirus-folder-colors (26.02.01) mx; urgency=medium
+
+  * create directory ~/.local/share/icons if necessary 
+
+ -- Melber <melber.mx.linux@gmail.com>  Tue, 03 Feb 2026 23:10:01 +0100
+ 
 papirus-folder-colors (25.09.01) mx; urgency=medium
 
   * yad 14 icon fixes

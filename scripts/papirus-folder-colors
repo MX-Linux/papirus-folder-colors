@@ -2,7 +2,7 @@
 
 ### This app was developed by MX Devs 2023 and released under GPLv3
 ### Name=Papirus-folder-colors
-VERSION=26.02.01
+VERSION=26.03.01
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="papirus-folder-colors"
@@ -13,6 +13,18 @@ CLASS="papirus-folder-colors"
 ICONPATH="/usr/share/pixmaps/papirus-folder-colors.svg"
 BTN_CLOSE=$(gettext "Close"); BTN_CLOSE+='!window-close'
 
+#check for wayland
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+#TRANSLATORS warning message that tool doesn't work with wayland
+    wayland_text_1="$(gettext 'Sorry, this tool is not available when running a wayland session.')"
+
+    yad --title="$title" --class="$class" --window-icon="$iconpath" \
+    --borders=10 --center --width=300 --height=100 \
+    --text="\n$wayland_text_1\n" --text-align=center \
+    --button=yad-close \
+
+    exit
+fi
 
 ### check papirus icons are installed
 if [ ! -d /usr/share/icons/Papirus  -o  ! -d /usr/share/icons/Papirus-mxblue ]; then

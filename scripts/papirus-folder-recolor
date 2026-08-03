@@ -516,9 +516,9 @@ case $ret in
 
 ### template colours-CLASSSIC
     if [ "$ICONSWITCH" = "classic" ]; then
-        COLOR_MAIN=#6ba4e7      
-        COLOR_TOP=#86460b
-        COLOR_SYMBOL=#ffffff
+        COLOR_MAIN=color_main_alt_template
+        COLOR_TOP=color_top_alt_template
+        COLOR_SYMBOL=color_symbol_alt_template
 
 #        if [ "$CLASSIC_DARK" = "dark" ]; then
 #           COLOR_MAIN=#6ba4e7
@@ -559,7 +559,7 @@ echo "# $((waittime))%"
         fi
 
         if [ "$ICONSWITCH" = "classic" ]; then
-            cp -r /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME
+            cp -r /usr/share/papirus-folder-colors/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME
             sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME$DARKNAME/index.theme
             papirus-folder-editcolors
 
@@ -577,7 +577,7 @@ echo "# $((waittime))%"
 
             if [ "$ICONSWITCH" = "classic" ]; then
                 pkexec bash -c "rm -r $TARGET_NEW/$PFR_NAME$DARK &&
-                cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
+                cp -r -P /usr/share/papirus-folder-colors/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
                 sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME/index.theme &&
                 papirus-folder-editcolors"
 
@@ -592,7 +592,7 @@ echo "# $((waittime))%"
         else
 
             if [ "$ICONSWITCH" = "classic" ]; then
-                pkexec bash -c "cp -r -P /usr/share/icons/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
+                pkexec bash -c "cp -r -P /usr/share/papirus-folder-colors/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
                 sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME/index.theme &&
                 papirus-folder-editcolors"
             else

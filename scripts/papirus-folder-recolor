@@ -576,9 +576,9 @@ echo "# $((waittime))%"
         if [ "$USRSHARE_EXISTS" = "true" ]; then
 
             if [ "$ICONSWITCH" = "classic" ]; then
-                pkexec bash -c "rm -r $TARGET_NEW/$PFR_NAME$DARK &&
+                pkexec bash -c "rm -r $TARGET_NEW/$PFR_NAME$DARKNAME &&
                 cp -r -P /usr/share/papirus-folder-colors/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
-                sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME/index.theme &&
+                sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME$DARKNAME/index.theme &&
                 papirus-folder-editcolors"
 
                 gtk-update-icon-cache "$TARGET_NEW/$PFR_NAME$DARKNAME"
@@ -593,7 +593,7 @@ echo "# $((waittime))%"
 
             if [ "$ICONSWITCH" = "classic" ]; then
                 pkexec bash -c "cp -r -P /usr/share/papirus-folder-colors/Papirus-mxblue$CLASSIC_DARK $TARGET_NEW/$PFR_NAME$DARKNAME &&
-                sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME/index.theme &&
+                sed -i "s/Papirus-mxblue$CLASSIC_DARK/$PFR_NAME$DARKNAME/g" $TARGET_NEW/$PFR_NAME$DARKNAME/index.theme &&
                 papirus-folder-editcolors"
             else
                 pkexec bash -c "papirus-folder-color.sh --color blue --name $PFR_NAME$DARKNAME --target_path $TARGET_NEW $TYPE_NEW &&

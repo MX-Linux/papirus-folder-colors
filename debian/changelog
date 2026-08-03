@@ -1,6 +1,7 @@
 papirus-folder-colors (26.03.01+nmu1) UNRELEASED; urgency=medium
 
   * use blank templates for classic icon
+  * use tokens rather than actual colors
 
  -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 02 Aug 2026 20:41:17 -0400
 
